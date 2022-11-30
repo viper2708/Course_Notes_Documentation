@@ -1,0 +1,73 @@
+site_name: Viper Docs
+
+nav:
+    - Home: index.md
+    - Free Code Camp:
+      - Free Code Camp Contents: freeCodeCamp/freeCodeCamp.md
+      - Sql Database Course: freeCodeCamp/youtube/sqlDatabaseCourse.md
+    - Nptel: 
+      - Nptel: nptel/nptel.md
+      - System Analysis and Design:
+        - Information for Management : nptel/systemAnalysisAndDesign/module1.md
+    - Office:
+      - Office contents: office/office.md
+      - Cloud Platform Professional Services:
+        - Beginner:
+          - Go to Cloud Platform: office/cloudPlatformProfessionalServices/beginner/goToCloudPlatform.md
+          - GTS 2020 Cloud Strategy: office/cloudPlatformProfessionalServices/beginner/gts2020CloudStrategy.md
+          - Processes and Operations in SG Cloud Platform: office/cloudPlatformProfessionalServices/beginner/processesAndOperationsInSG.md
+        - Intermediate:
+          - Cloud Platform Delivery:
+            - Deep Dive into Service Catalog: office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/deepDiveIntoServiceCatalog.md
+            - DoItNow Services: office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/doItNowService.md
+          - Cloud Platform Use:
+            - Cloud Native ArchitectureCloud Native Architecture: office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/cloudNativeArchitecture.md
+            - Introduction to Cloud Architecture: office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/introductionToCloudArchitecture.md
+          - Core Services Discovery:
+            - Block Storage Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/blockStorageService.md
+            - Cerficate Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/certificateService.md
+            - Cloud Orchestration Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudOrchestrationService.md
+            - Cloud Platform Compute Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudPlatformComputeService.md
+            - File Storage Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/fileStorageService.md
+            - IAM Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IAMService.md
+            - IPAM-DNS Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IPAM_DNSService.md
+            - OS Factory Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSFactoryService.md
+            - OS Configuration Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSConfigurationService.md
+            - Object Storage Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/objectStorageService.md
+            - Security Group Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/securityGroupService.md
+        - Advanced:
+          - Data Persistence in Cloud Platform:
+            - Cloud Native Architecture Patterns: office/cloudPlatformProfessionalServices/advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns.md
+      - My Learning:
+        - Basics of Level 1 Permanent Control: office/myLearning/bascisOfLevel1PermanentControl.md
+        - Sustainable IT Awareness: office/myLearning/sustainableITAwareness.md
+    - PluralSight: 
+      - PluralSight Contents: pluralsight/pluralsight.md
+      - Blinc:
+        - Phase 1:
+          - Fundamentals of Java: pluralsight/blinc/phase1/fundamentalsOfJava.md
+          - Generics: pluralsight/blinc/phase1/generics.md
+          - Git: pluralsight/blinc/phase1/git.md
+          - JDBC Java Platform: pluralsight/blinc/phase1/jdbcjavaPlatform.md
+          - Multi Threading: pluralsight/blinc/phase1/multithreading.md
+          - Shell Scripting: pluralsight/blinc/phase1/shellScripting.md
+          - TDD The Big Picture: pluralsight/blinc/phase1/tddTheBigPicture.md
+        - Phase 2:
+          - Java Wev Fundamentals: pluralsight/blinc/phase2/javaWebFundamentals.md
+          - Spring The Big Picture: pluralsight/blinc/phase2/springTheBigPicture.md
+      - Paths:
+        - Java Language Fundamentals:
+          - Beginner:
+            - Modern Java, the Big Picture: pluralsight/paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture.md
+      - Solo Courses:
+        - Java:
+          - From Collections to Streams using Lambda Expressions: pluralsight/soloCourses/java/streamsLambdaExpressions.md
+    - Self Development Books: 
+      - Self Development Books list: booksNovels/selfDevelopmentBooks.md
+      - Atomic Habits: booksNovels/atomicHabits.md
+
+theme:
+  name: material
+  palette:
+    primary: teal
+    accent: orange
