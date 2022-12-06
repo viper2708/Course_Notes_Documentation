@@ -31,6 +31,7 @@ This documentation contains the links to Nptel course.
     *   Advanced
         *   Data Persistence in Cloud Platform
             *   [Cloud Native Architecture Patterns](cloudPlatformProfessionalServices/advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns.md)
-            *   [Sustainable IT Awareness](myLearning/sustainableITAwareness.md) 
 *   My Learning
     *   [Basics of Level 1 Permanent Control](myLearning/bascisOfLevel1PermanentControl.md)
+    *   [Sustainable IT Awareness](myLearning/sustainableITAwareness.md)
+    *   [Protection Against Corruption](myLearning/fightAgainstCorruption.md)
