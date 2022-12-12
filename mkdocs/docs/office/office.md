@@ -35,3 +35,4 @@ This documentation contains the links to Nptel course.
     *   [Basics of Level 1 Permanent Control](myLearning/bascisOfLevel1PermanentControl.md)
     *   [Sustainable IT Awareness](myLearning/sustainableITAwareness.md)
     *   [Protection Against Corruption](myLearning/fightAgainstCorruption.md)
+    *   [Protection of Personal Data](myLearning/protectionOfPersonalData.md)
