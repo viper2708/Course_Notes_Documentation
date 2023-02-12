@@ -36,3 +36,4 @@ This documentation contains the links to Nptel course.
     *   [Sustainable IT Awareness](myLearning/sustainableITAwareness.md)
     *   [Protection Against Corruption](myLearning/fightAgainstCorruption.md)
     *   [Protection of Personal Data](myLearning/protectionOfPersonalData.md)
+    *   [Prevention of Sexual Harassment](myLearning/preventionOfSexualHarassment.md)

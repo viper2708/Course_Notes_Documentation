@@ -38,35 +38,36 @@ nav:
         - Advanced:
           - Data Persistence in Cloud Platform:
             - Cloud Native Architecture Patterns: office/cloudPlatformProfessionalServices/advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns.md
-      - My Learning:
-        - Basics of Level 1 Permanent Control: office/myLearning/bascisOfLevel1PermanentControl.md
-        - Sustainable IT Awareness: office/myLearning/sustainableITAwareness.md
-        - Protection Against Corruption: office/myLearning/fightAgainstCorruption.md
-        - Protection of Personal Data: office/myLearning/protectionOfPersonalData.md
-      - PluralSight: 
-        - PluralSight Contents: pluralsight/pluralsight.md
-        - Blinc:
-          - Phase 1:
-            - Fundamentals of Java: pluralsight/blinc/phase1/fundamentalsOfJava.md
-            - Generics: pluralsight/blinc/phase1/generics.md
-            - Git: pluralsight/blinc/phase1/git.md
-            - JDBC Java Platform: pluralsight/blinc/phase1/jdbcjavaPlatform.md
-            - Multi Threading: pluralsight/blinc/phase1/multithreading.md
-            - Shell Scripting: pluralsight/blinc/phase1/shellScripting.md
-            - TDD The Big Picture: pluralsight/blinc/phase1/tddTheBigPicture.md
-          - Phase 2:
-            - Java Wev Fundamentals: pluralsight/blinc/phase2/javaWebFundamentals.md
-            - Spring The Big Picture: pluralsight/blinc/phase2/springTheBigPicture.md
-        - Paths:
-          - Java Language Fundamentals:
-            - Beginner:
-              - Modern Java, the Big Picture: pluralsight/paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture.md
-        - Solo Courses:
-          - Java:
-            - From Collections to Streams using Lambda Expressions: pluralsight/soloCourses/java/streamsLambdaExpressions.md
-      - Self Development Books: 
-        - Self Development Books list: booksNovels/selfDevelopmentBooks.md
-        - Atomic Habits: booksNovels/atomicHabits.md
+    - My Learning:
+      - Basics of Level 1 Permanent Control: office/myLearning/bascisOfLevel1PermanentControl.md
+      - Sustainable IT Awareness: office/myLearning/sustainableITAwareness.md
+      - Protection Against Corruption: office/myLearning/fightAgainstCorruption.md
+      - Protection of Personal Data: office/myLearning/protectionOfPersonalData.md
+      - Prevention of Sexual Harassment: office/myLearning/preventionOfSexualHarassment.md
+    - PluralSight: 
+      - PluralSight Contents: pluralsight/pluralsight.md
+      - Blinc:
+        - Phase 1:
+          - Fundamentals of Java: pluralsight/blinc/phase1/fundamentalsOfJava.md
+          - Generics: pluralsight/blinc/phase1/generics.md
+          - Git: pluralsight/blinc/phase1/git.md
+          - JDBC Java Platform: pluralsight/blinc/phase1/jdbcjavaPlatform.md
+          - Multi Threading: pluralsight/blinc/phase1/multithreading.md
+          - Shell Scripting: pluralsight/blinc/phase1/shellScripting.md
+          - TDD The Big Picture: pluralsight/blinc/phase1/tddTheBigPicture.md
+        - Phase 2:
+          - Java Wev Fundamentals: pluralsight/blinc/phase2/javaWebFundamentals.md
+          - Spring The Big Picture: pluralsight/blinc/phase2/springTheBigPicture.md
+      - Paths:
+        - Java Language Fundamentals:
+          - Beginner:
+            - Modern Java, the Big Picture: pluralsight/paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture.md
+      - Solo Courses:
+        - Java:
+          - From Collections to Streams using Lambda Expressions: pluralsight/soloCourses/java/streamsLambdaExpressions.md
+    - Self Development Books: 
+      - Self Development Books list: booksNovels/selfDevelopmentBooks.md
+      - Atomic Habits: booksNovels/atomicHabits.md
 
 theme:
   name: material
