@@ -20,6 +20,8 @@ This documentation contains the contents of PluralSight courses.
     *   Java Language Fundamentals
         *   Beginner
             *   [Modern Java - The Big Picture](paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture.md)
+    *   PMI-ACP Agile exam
+        *   [Introduction to Agile Project Management and the PMI-ACP Exam](paths/pmiAcpExam/introductionToAgileProjectMgt.md)
 *   Solo Courses
     *   Java
         *   [From Collections to Streams using Lambda Expressions](soloCourses/java/streamsLambdaExpressions.md)

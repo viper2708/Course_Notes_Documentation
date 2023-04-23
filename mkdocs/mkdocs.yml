@@ -62,6 +62,8 @@ nav:
         - Java Language Fundamentals:
           - Beginner:
             - Modern Java, the Big Picture: pluralsight/paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture.md
+        - PMI-ACP Agile exam:
+          - Introduction to Agile Project Management and the PMI-ACP Exam: pluralsight/paths/pmiAcpExam/introductionToAgileProjectMgt.md
       - Solo Courses:
         - Java:
           - From Collections to Streams using Lambda Expressions: pluralsight/soloCourses/java/streamsLambdaExpressions.md
