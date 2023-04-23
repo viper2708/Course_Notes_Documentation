@@ -38,12 +38,12 @@ nav:
         - Advanced:
           - Data Persistence in Cloud Platform:
             - Cloud Native Architecture Patterns: office/cloudPlatformProfessionalServices/advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns.md
-    - My Learning:
-      - Basics of Level 1 Permanent Control: office/myLearning/bascisOfLevel1PermanentControl.md
-      - Sustainable IT Awareness: office/myLearning/sustainableITAwareness.md
-      - Protection Against Corruption: office/myLearning/fightAgainstCorruption.md
-      - Protection of Personal Data: office/myLearning/protectionOfPersonalData.md
-      - Prevention of Sexual Harassment: office/myLearning/preventionOfSexualHarassment.md
+      - My Learning:
+        - Basics of Level 1 Permanent Control: office/myLearning/bascisOfLevel1PermanentControl.md
+        - Sustainable IT Awareness: office/myLearning/sustainableITAwareness.md
+        - Protection Against Corruption: office/myLearning/fightAgainstCorruption.md
+        - Protection of Personal Data: office/myLearning/protectionOfPersonalData.md
+        - Prevention of Sexual Harassment: office/myLearning/preventionOfSexualHarassment.md
     - PluralSight: 
       - PluralSight Contents: pluralsight/pluralsight.md
       - Blinc:
