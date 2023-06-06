@@ -37,3 +37,4 @@ This documentation contains the links to Nptel course.
     *   [Protection Against Corruption](myLearning/fightAgainstCorruption.md)
     *   [Protection of Personal Data](myLearning/protectionOfPersonalData.md)
     *   [Prevention of Sexual Harassment](myLearning/preventionOfSexualHarassment.md)
+    *   [CSR: History, Standards and Opportunities](myLearning/csrHistoryStandardsOpportunities.md)
