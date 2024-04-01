@@ -1,0 +1,2187 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cloudNativeArchitecture/">
+      
+      
+        <link rel="next" href="../../coreServicesDiscovery/blockStorageService/">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.0, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>Introduction to Cloud Architecture - Viper Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-cloud-architecture" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Viper Docs" class="md-header__button md-logo" aria-label="Viper Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Viper Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction to Cloud Architecture
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Viper Docs" class="md-nav__button md-logo" aria-label="Viper Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Viper Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Free Code Camp
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Free Code Camp
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../freeCodeCamp/freeCodeCamp/" class="md-nav__link">
+        Free Code Camp Contents
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../freeCodeCamp/youtube/sqlDatabaseCourse/" class="md-nav__link">
+        Sql Database Course
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Nptel
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Nptel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../nptel/nptel/" class="md-nav__link">
+        Nptel
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          System Analysis and Design
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          System Analysis and Design
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../nptel/systemAnalysisAndDesign/module1/" class="md-nav__link">
+        Information for Management
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Office
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Office
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/" class="md-nav__link">
+        Office contents
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          Cloud Platform Professional Services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Platform Professional Services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+          Beginner
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Beginner
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../beginner/goToCloudPlatform/" class="md-nav__link">
+        Go to Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../beginner/gts2020CloudStrategy/" class="md-nav__link">
+        GTS 2020 Cloud Strategy
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../beginner/processesAndOperationsInSG/" class="md-nav__link">
+        Processes and Operations in SG Cloud Platform
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+          Intermediate
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Intermediate
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_2_1" id="__nav_4_2_2_1_label" tabindex="0">
+          Cloud Platform Delivery
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Platform Delivery
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformDelivery/deepDiveIntoServiceCatalog/" class="md-nav__link">
+        Deep Dive into Service Catalog
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformDelivery/doItNowService/" class="md-nav__link">
+        DoItNow Services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_2_2" id="__nav_4_2_2_2_label" tabindex="0">
+          Cloud Platform Use
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cloud Platform Use
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudNativeArchitecture/" class="md-nav__link">
+        Cloud Native ArchitectureCloud Native Architecture
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introduction to Cloud Architecture
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Introduction to Cloud Architecture
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-cloud-what-are-the-different-types-of-cloud" class="md-nav__link">
+    What is the Cloud? What are the different types of Cloud?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-the-key-architecture-concepts-of-the-cloud" class="md-nav__link">
+    What are the key architecture concepts of the Cloud?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-the-societe-generale-cloud-offer" class="md-nav__link">
+    What does the Societe Generale cloud offer?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#so-public-cloud-or-private-cloud" class="md-nav__link">
+    So, Public Cloud or Private Cloud?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_2_3" id="__nav_4_2_2_3_label" tabindex="0">
+          Core Services Discovery
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Core Services Discovery
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/blockStorageService/" class="md-nav__link">
+        Block Storage Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/certificateService/" class="md-nav__link">
+        Cerficate Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/cloudOrchestrationService/" class="md-nav__link">
+        Cloud Orchestration Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/cloudPlatformComputeService/" class="md-nav__link">
+        Cloud Platform Compute Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/fileStorageService/" class="md-nav__link">
+        File Storage Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/IAMService/" class="md-nav__link">
+        IAM Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/IPAM_DNSService/" class="md-nav__link">
+        IPAM-DNS Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/OSFactoryService/" class="md-nav__link">
+        OS Factory Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/OSConfigurationService/" class="md-nav__link">
+        OS Configuration Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/objectStorageService/" class="md-nav__link">
+        Object Storage Service
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../coreServicesDiscovery/securityGroupService/" class="md-nav__link">
+        Security Group Service
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+          Advanced
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Advanced
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2_3_1" id="__nav_4_2_3_1_label" tabindex="0">
+          Data Persistence in Cloud Platform
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Data Persistence in Cloud Platform
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns/" class="md-nav__link">
+        Cloud Native Architecture Patterns
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          My Learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          My Learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../myLearning/bascisOfLevel1PermanentControl/" class="md-nav__link">
+        Basics of Level 1 Permanent Control
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../myLearning/sustainableITAwareness/" class="md-nav__link">
+        Sustainable IT Awareness
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../myLearning/fightAgainstCorruption/" class="md-nav__link">
+        Protection Against Corruption
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../myLearning/protectionOfPersonalData/" class="md-nav__link">
+        Protection of Personal Data
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../myLearning/preventionOfSexualHarassment/" class="md-nav__link">
+        Prevention of Sexual Harassment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../myLearning/csrHistoryStandardsOpportunities/" class="md-nav__link">
+        CSR History Standards and Opportunities
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          PluralSight
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          PluralSight
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/pluralsight/" class="md-nav__link">
+        PluralSight Contents
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+          Blinc
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Blinc
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+          Phase 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/blinc/phase1/fundamentalsOfJava/" class="md-nav__link">
+        Fundamentals of Java
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/blinc/phase1/generics/" class="md-nav__link">
+        Generics
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/blinc/phase1/git/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/blinc/phase1/jdbcjavaPlatform/" class="md-nav__link">
+        JDBC Java Platform
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/blinc/phase1/multithreading/" class="md-nav__link">
+        Multi Threading
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/blinc/phase1/shellScripting/" class="md-nav__link">
+        Shell Scripting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/blinc/phase1/tddTheBigPicture/" class="md-nav__link">
+        TDD The Big Picture
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+          Phase 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Phase 2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/blinc/phase2/javaWebFundamentals/" class="md-nav__link">
+        Java Wev Fundamentals
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/blinc/phase2/springTheBigPicture/" class="md-nav__link">
+        Spring The Big Picture
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          Paths
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Paths
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
+          Java Language Fundamentals
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java Language Fundamentals
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3_1_1" id="__nav_5_3_1_1_label" tabindex="0">
+          Beginner
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Beginner
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture/" class="md-nav__link">
+        Modern Java, the Big Picture
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3_2" id="__nav_5_3_2_label" tabindex="0">
+          PMI-ACP Agile exam
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          PMI-ACP Agile exam
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/paths/pmiAcpExam/introductionToAgileProjectMgt/" class="md-nav__link">
+        Introduction to Agile Project Management and the PMI-ACP Exam
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          Solo Courses
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Solo Courses
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
+          Java
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Java
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../pluralsight/soloCourses/java/streamsLambdaExpressions/" class="md-nav__link">
+        From Collections to Streams using Lambda Expressions
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Self Development Books
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Self Development Books
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../booksNovels/selfDevelopmentBooks/" class="md-nav__link">
+        Self Development Books list
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../booksNovels/atomicHabits/" class="md-nav__link">
+        Atomic Habits
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-the-cloud-what-are-the-different-types-of-cloud" class="md-nav__link">
+    What is the Cloud? What are the different types of Cloud?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-are-the-key-architecture-concepts-of-the-cloud" class="md-nav__link">
+    What are the key architecture concepts of the Cloud?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-does-the-societe-generale-cloud-offer" class="md-nav__link">
+    What does the Societe Generale cloud offer?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#so-public-cloud-or-private-cloud" class="md-nav__link">
+    So, Public Cloud or Private Cloud?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="introduction-to-cloud-architecture">Introduction to Cloud Architecture</h1>
+<h2 id="what-is-the-cloud-what-are-the-different-types-of-cloud">What is the Cloud? What are the different types of Cloud?</h2>
+<ul>
+<li>
+<p>What is the Cloud exactly?</p>
+<ul>
+<li>The Cloud (Computing) is a way of providing access to computer resources, characterized by its self-service availability, elasticity, openness, mutualisation and pay-per-use<ul>
+<li>Self-service and on-demand resources of storage capacity and computing power, according to the customer's needs. This contrasts with so-called "traditional" computing where any need to change an application requires manual operations and therefore time.In the Cloud, the need, automatically detected by the application or at the customer's request, is taken into account and satisfied immediately.</li>
+<li>Openness : Cloud services are accessible through a network, using standardized techniques, whether from a computer, a amartphone or a tablet</li>
+<li>Mutualization : The Cloud mutualizes its IT resources (servers, CPU, RAM, storage, network) to serve its customers, to whom the ordered resources are allocated according to automatic processes. Mutualization improves scalability and elasticity; it facilitates the automatic adaptation of resources to variations in demand</li>
+<li>Pay-per-use: The quantity of services consumed in the Cloud is measured for purposes of control, adaptation of technical means and billing.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>With the Cloud, we should talk about "XAAS". What's XAAS?</p>
+<ul>
+<li>The acronym XaaS refers to Everything-as-a-Service. This term refers to the different models of Cloud computing "as a service"</li>
+<li>Indeed with the Cloud, we no longer speak of infrastructure components but of services, which explains the syntax of the terms (aaS). XaaS services are organised into 3 categories<ul>
+<li>IaaS (Infrastructure as a Service) : Provides CPU, storage, RAM, Network</li>
+<li>PaaS (Platform as a Service) : Provides ready-to-use middlewares (database, web server,etc.)</li>
+<li>SaaS (Software as a Service) : Provides ready-to-use softwares (CRM, expense claim management, online office automation tools such as Office 365, payroll management, etc.)</li>
+</ul>
+</li>
+<li>We talk about "Infrastructure as a Service" is the case where:<ul>
+<li>The client manages the middlewares and softwares (executables, settings, databases)</li>
+<li>The Cloud provider manages server hardware, virtualization layers, storage, networks</li>
+</ul>
+</li>
+<li>It is a model where the customer has, on a paying subscription basis, an IT infrastructure (servers, storage, backup, network) that is physically located at the Cloud provider</li>
+</ul>
+</li>
+<li>
+<p>XaaS service in detail</p>
+<ul>
+<li>Infrastructure as a Service (IaaS)<ul>
+<li>It's the lowest level of service. It consist of providing access to a virtualized computer park. Virtual machines on which the customer can install an operating system and applications. The service is similar to traditional data center hosting services, and the trend is towards highest level services (PaaS or IaaS) that are more abstract in terms of technical details</li>
+</ul>
+</li>
+<li>Platform as a Service<ul>
+<li>In this type of service, the operating system and infrastructure tools are the responsibility of the Cloud provider. The customer has direct access to specialized services (web front-ends, middlewares, databases, etc.) that can be customized: the customer chooses, in a Marketplace, the design of the technical solution to be deployed. The Cloud provider will execute the implementation with its own Scripts.</li>
+<li>Advantage<ul>
+<li>The customer of the Cloud solution will be able to focus on the business application to be implemented</li>
+</ul>
+</li>
+<li>Disadvantage<ul>
+<li>In the event that the PaaS provider decides to no longer authorize the use of a tool or a version, or to interrupt or develop its offer, the consumer must adapt within the timeframe chosen by the PaaS provider</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Software as a Service<ul>
+<li>In this type of service, software are made available to clients, accessible from a Web browser or installed on a PC for rental. The customer does not have to worry about making updates, adding security patches and ensuring the availability of the service</li>
+<li>Advantage<ul>
+<li>Rapid implementation and provision of services for the customer. No need to worry about software packagees and licenses anymore. The service is immediately 'available online'</li>
+<li>As the software is managed by the provider, customers no longer need to worry about deployments, maintenance and technical evolution phases of the Service</li>
+</ul>
+</li>
+<li>Disadvantage<ul>
+<li>It is difficult to manage service interruptions; customers have to organize themselves around the constraints imposed by the SaaS provider</li>
+<li>It is necessary to comply with the supplier's prerequisites for a good use</li>
+<li>The customer is subject to the SaaS product product lifecycle by the Cloud provider, particularly in the event of a lack orabandonment of functionality</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>A SaaS provider can operate PaaS-type services, which in turn can use IaaS.</li>
+<li>The use of services (IaaS-PaaS-SaaS), by its nature, is therefore a shared responsibility.</li>
+</ul>
+</li>
+<li>
+<p>The different types of clouds</p>
+<ul>
+<li>The public cloud<ul>
+<li>The infrastructure is mutualized ans is shared between several companies and individuals. It is owned by a service provider. The Service Level Agreement (SLA) is the same for all users and is defined by the provider<ul>
+<li>Natively, Public Cloud services are provided in a virtualized environment, built using physical resources in pools shared with all other subscribers</li>
+</ul>
+</li>
+<li>The services are accessible via the Internet</li>
+<li>The Public Cloud offers the following features and benefits<ul>
+<li>High resource scalability so that an application can respond flexibly to charge fluctuations</li>
+<li>Only leased resources are billed</li>
+<li>The pricing model is based on what is consumed(no cost on unused resources)</li>
+</ul>
+</li>
+<li>No more need to tie up resources to anticipate future needs<ul>
+<li>The (very) high availability of access to environments</li>
+</ul>
+</li>
+<li>The multitude of physical components implemented by the supplier to create a Public Cloud means that there is no (theoretically) infrastructure SPOF (Single Point of Failure : a system-part whose failure stops the system from working)<ul>
+<li>The services offered can meet most of the requirements and use cases sought by the company</li>
+<li>Customers have access to a standardized environment</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The Private Cloud<ul>
+<li>It is an environment exclusively used by a company</li>
+<li>The company is then responsible for the purchase, installation and management of servers, network, storage, etc. all of which are protected by security solutions implemented by the company</li>
+<li>The Private Cloud can be hosted in company-owned datacenter or hosted by a partner</li>
+</ul>
+</li>
+<li>The Hybrid Cloud<ul>
+<li>It is a use of several Clouds where all combinations between Private and Public Clouds are possible</li>
+<li>These combinations of several types of accomodation totally independent of each other require to respect:<ul>
+<li>Technological standards to be able to communicate between Clouds</li>
+<li>A network connectivity that can meet the needs</li>
+</ul>
+</li>
+<li>The Hybrid Cloud makes it possible to shift workloads between different types of hosting according to changing needs, cost reduction or in case of need for dynamic increase of mass resources</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>The Cloud Market</p>
+<ul>
+<li>According to the RightScale (2019) report on the state of cloud computing, 91% of companies reported using a Public Cloud service</li>
+<li>Gartner's most recent data on the global market for infrastructure as Cloud IaaS Service indicates annual revenues of 32.4 billion dollars. This is a 31.3% growth from 24.7 billion dollars in 2017.</li>
+<li>According to Gartner, the market is dominated by 5 vendors that account for nearly 80% of the global Cloud IaaS market share in 2018<ul>
+<li>AWS : 50%</li>
+<li>Microsoft Azure : 15%</li>
+<li>Alibaba Cloud : 8%</li>
+<li>Google Cloud Platform : 5%</li>
+<li>IBM Cloud :2%</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-are-the-key-architecture-concepts-of-the-cloud">What are the key architecture concepts of the Cloud?</h2>
+<ul>
+<li>
+<p>Anatomy of the Cloud</p>
+<ul>
+<li>A Cloud is made up of regions, which in turn are made up of Availability Zones(AZs) that contain services<ul>
+<li>Region :<ul>
+<li>It is a collection of availability zones. The regions are far enough apart from each other so that they are not simultaneously impacted by disasters of regional scope: earthquake, electrical grid loss, etc. The regions are too far apart to allow synchronoud data replication</li>
+</ul>
+</li>
+<li>Availability Zones :<ul>
+<li>This is a deployment zone for infrastructure resources that can be deployed via the Cloud. Zones in the same region are close enough to be interconnected with high-capacity, low-latency network links that allow synchronous data replication. However they are far enough apart to avoid being impacted by local disasters such as loss of power, fire, etc. A distance of a few km to 50 km is generally observed</li>
+</ul>
+</li>
+<li>Services<ul>
+<li>As seen in the previous section, a cloud is composed of automated services</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>These services can be classified into two categories:<ul>
+<li>Services that support the operation of the Cloud<ul>
+<li>Billing</li>
+<li>Supervision</li>
+<li>Events</li>
+<li>Authorizations</li>
+</ul>
+</li>
+<li>Infrastructure services<ul>
+<li>VM</li>
+<li>Containers</li>
+<li>Load Balancer</li>
+<li>Databases</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Anatomy of a Cloud: how it works</p>
+<ul>
+<li>Consumers of Cloud Platform<ul>
+<li>Developers</li>
+<li>Applications</li>
+<li>COO, etc.</li>
+</ul>
+</li>
+<li>There are several ways to interact with a service<ul>
+<li>By API</li>
+<li>On the command line (CLI)</li>
+<li>By a console (DoItNow internally)</li>
+</ul>
+</li>
+<li>Cloud Platform is composed of unit services called XaaS</li>
+<li>A resource can be any infrastructure object that supports an application (examples: VM, database, VIP, DNA aliases, etc.)</li>
+<li>Control plane<ul>
+<li>Everything that allows you to manage the service's resources (creation, deletion, supervision, etc.)</li>
+</ul>
+</li>
+<li>Resource plane<ul>
+<li>These are the resources created by the service (VMs, databases, etc.)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Some key concepts - the account at the heart of everything</p>
+<ul>
+<li>The Clouds are organized around the notion of account. This account can be seen as a container for all the resources deployed within a Cloud : database, virtual machines, etc.</li>
+<li>The same account will be used:<ul>
+<li>To manage the authorization on the services and resources of Cloud Platform</li>
+<li>To also manage the billing of services</li>
+<li>The only thing to remember at this stage is that you will need an account to access Cloud Platform. If you want to know more, please consult the specific MOOC on IAM (Identity and Access Management)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Cloud native, what does that mean?</p>
+<ul>
+<li>As described above, a Cloud brings a number of benefits (elasticity, agility, etc.)</li>
+<li>Nevertheless, in order to take full advantage of the Cloud, applications need to be designed for it. These applications are called Cloud Native Applications : born in the Cloud</li>
+<li>Multiple frameworks (eg. 12 factors) exist to define precisely what this concept is and the detailed characteristics of the applications implementing it. This will be the subject of the Level 2 MOOC</li>
+</ul>
+</li>
+<li>
+<p>We will summarize them here in the three main characteristics:</p>
+<ul>
+<li>Resilient<ul>
+<li>The application is designed to survive the loss of a unit component, an area of availability or even a region if necessary. In the same way, an application must support temporary network modifications: throughput, latency, etc.</li>
+</ul>
+</li>
+<li>Elastic<ul>
+<li>The application must be able to adapt to the number of requests in order to optimize its operating cost</li>
+</ul>
+</li>
+<li>Automated<ul>
+<li>The application is deployed automatically through a continuous deployment chain on infrastructure components which are themselves created in an automated way (infra as code)</li>
+<li>The application does not require manual actions on the unit components, metrics are fed back and automatic actions are taken on the basis of these metrics</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-does-the-societe-generale-cloud-offer">What does the Societe Generale cloud offer?</h2>
+<ul>
+<li>
+<p>What are the founding principles of Cloud Platform?</p>
+<ul>
+<li>The Societe Generale Cloud Platform has been designed to be multi-Cloud and aligned, for its internal services, with the concepts of the Public Cloud and market standards :<ul>
+<li>Multi-Cloud as it offers internal services and native access to the Public Cloud in accordance with the regulator's rules and the Group's security rules</li>
+<li>Aligned with Cloud concepts and market standards, it enables internal applications to be designed in the same ways as in the Public Cloud</li>
+</ul>
+</li>
+<li>The service offering has been designed to support Cloud Native Applications and DevOps / NoOps practices :<ul>
+<li>The service catalog therefore offers the minimum services enabling Cloud Native architectures (eg. load balancer, containers, event management, etc.)</li>
+<li>And to support DevOps / NoOps practices, all services are accessible via API</li>
+</ul>
+</li>
+<li>Services are designed from the outset to be agnostic of the customer them : in concrete terms, the service consumed is the same regardless of the IT department (BSC, GBSU, ITIM, IRBS)</li>
+<li>Finally, all services are attractively priced and are billed on a pay-per-use basis</li>
+</ul>
+</li>
+<li>
+<p>One Internal Cloud and two Public Clouds</p>
+<ul>
+<li>Regions of presence of the GTS Private Cloud in the world :<ul>
+<li>USA East - 2 AZ</li>
+<li>Paris - 2 AZ</li>
+<li>North - 1 AZ</li>
+<li>Asia - 2 AZ</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>One Internal Cloud and two Public Clouds</p>
+<ul>
+<li>Regions of presence of Public Cloud actors in the world :<ul>
+<li>Azure</li>
+<li>AWS</li>
+</ul>
+</li>
+<li>Business lines may choose to restrict the use of the Public Cloud to certain regions</li>
+</ul>
+</li>
+<li>
+<p>CSP / CSP+ / MSP organization</p>
+<ul>
+<li>Cloud Service Provider (CSP)<ul>
+<li>Services consumed by API, used by the customers themselves :<ul>
+<li>Account-centric, not application-centric (as in public CSPs)</li>
+<li>Independence from uses and type of environment (everything is production)</li>
+</ul>
+</li>
+<li>Main objective<ul>
+<li>Openness and adaptability of the model for NoOps consumption</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CSP+ (Controller = "Bank in compliance")<ul>
+<li>Business processes for Safety, Compliance, Financial Management and</li>
+<li>Operations (SOC / OPM) are based on :<ul>
+<li>Knowledge of the application ID (communication, impact assessment)</li>
+<li>Knowledge of the type of environment (prioritization, impact assessment)</li>
+</ul>
+</li>
+<li>Main objective<ul>
+<li>To ensure respect and compliance with enforced rules</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Managed Service Provider (MSP)<ul>
+<li>Consumed services, adapted to a particular client and its ecosystem</li>
+<li>Entirely used by GTS on behalf of the customer</li>
+<li>Use of GTS's MSP tools<ul>
+<li>Marley</li>
+<li>GDAT</li>
+<li>iAppli</li>
+<li>KAT</li>
+</ul>
+</li>
+<li>Main objective :<ul>
+<li>To provide managed services on customer resources</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="so-public-cloud-or-private-cloud">So, Public Cloud or Private Cloud?</h2>
+<ul>
+<li>What are the main criteria for choosing between Private Cloud and Public Cloud?<ul>
+<li>Data security<ul>
+<li>An application cannot be hosted in the Public Cloud if its data meets at least one of the following criteria :<ul>
+<li>The data is C3 (according to the critically scale C0 / C1 / C2 / C3 in force at Sociate Generale)</li>
+<li>The data is subject to regulatory (eg. European Central Bank) or legal constraints</li>
+<li>The data relates to private information (RGPD constraints for the protection of personal data)</li>
+<li>The strategy of the Business Line, owner of the data, refuses to host it in the Public Cloud (residual risks too high estimated by the Business Line)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Innovation / Technological advantage<ul>
+<li>The richness of the catalogues of Public Cloud providers in terms of Data-Science and Artificial Intelligence can help accelerate the development of new cases planned within the different business lines (new services, fight against fraud, improvement of operational efficiency, etc.)</li>
+</ul>
+</li>
+<li>Elasticity and agility<ul>
+<li>Users appear to have almost unlimited resources in the Public Cloud. As a result, the Public Cloud is often better suited to large workloads or highly fluctuating demands</li>
+</ul>
+</li>
+<li>Business value vs cost<ul>
+<li>A comparative financial analysis (Business Case) is often necessary to make a choice. The Business Case must evaluate the value brought to the business for each type of Cloud and its operating cost (Run). The public Cloud can be penalized by telecom expenses (access to the Cloud) and by costs related to the need for reversibility management</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
