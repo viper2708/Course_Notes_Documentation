@@ -60,6 +60,9 @@ nav:
           - Java Wev Fundamentals: pluralsight/blinc/phase2/javaWebFundamentals.md
           - Spring The Big Picture: pluralsight/blinc/phase2/springTheBigPicture.md
       - Paths:
+        - Domain Driven Design:
+          - Beginner:
+            - Clean Architecture - Patterns, Practices and Principles: pluralsight/paths/bdd/beginner/cleanArchitecture.md
         - Java Language Fundamentals:
           - Beginner:
             - Modern Java, the Big Picture: pluralsight/paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture.md
