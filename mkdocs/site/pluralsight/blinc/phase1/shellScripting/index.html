@@ -1,0 +1,3499 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../multithreading/">
+      
+      
+        <link rel="next" href="../tddTheBigPicture/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Shell Scripting - Viper Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#shell-scripting" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Viper Docs" class="md-header__button md-logo" aria-label="Viper Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Viper Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Shell Scripting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Viper Docs" class="md-nav__button md-logo" aria-label="Viper Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Viper Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Free Code Camp
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Free Code Camp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../freeCodeCamp/freeCodeCamp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Free Code Camp Contents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../freeCodeCamp/youtube/sqlDatabaseCourse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sql Database Course
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Nptel
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Nptel
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nptel/nptel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nptel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System Analysis and Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            System Analysis and Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nptel/systemAnalysisAndDesign/module1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information for Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Office
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Office
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/office/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Office contents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Platform Professional Services
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Platform Professional Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Beginner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beginner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/beginner/goToCloudPlatform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go to Cloud Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/beginner/gts2020CloudStrategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GTS 2020 Cloud Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/beginner/processesAndOperationsInSG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processes and Operations in SG Cloud Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Intermediate
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Intermediate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_1" id="__nav_4_2_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Platform Delivery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Platform Delivery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/deepDiveIntoServiceCatalog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep Dive into Service Catalog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/doItNowService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DoItNow Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_2" id="__nav_4_2_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Platform Use
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Platform Use
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/cloudNativeArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Native ArchitectureCloud Native Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/introductionToCloudArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Cloud Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3" id="__nav_4_2_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Core Services Discovery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core Services Discovery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/blockStorageService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Block Storage Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/certificateService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cerficate Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudOrchestrationService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Orchestration Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudPlatformComputeService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Platform Compute Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/fileStorageService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Storage Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IAMService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAM Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IPAM_DNSService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPAM-DNS Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSFactoryService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OS Factory Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSConfigurationService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OS Configuration Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/objectStorageService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Object Storage Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/securityGroupService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Group Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_3_1" id="__nav_4_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Persistence in Cloud Platform
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Persistence in Cloud Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Native Architecture Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    My Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            My Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/bascisOfLevel1PermanentControl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics of Level 1 Permanent Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/sustainableITAwareness/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sustainable IT Awareness
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/fightAgainstCorruption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protection Against Corruption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/protectionOfPersonalData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protection of Personal Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/preventionOfSexualHarassment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prevention of Sexual Harassment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/csrHistoryStandardsOpportunities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSR History Standards and Opportunities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PluralSight
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            PluralSight
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PluralSight Contents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blinc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blinc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Phase 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Phase 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fundamentalsOfJava/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fundamentals of Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jdbcjavaPlatform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JDBC Java Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi Threading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Shell Scripting
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Shell Scripting
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-first-look-at-shell-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      A First Look at Shell Scripts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tddTheBigPicture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TDD The Big Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Phase 2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Phase 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase2/javaWebFundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java Wev Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase2/springTheBigPicture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spring The Big Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Paths
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Paths
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Domain Driven Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Domain Driven Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_1_1" id="__nav_5_3_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Beginner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beginner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths/bdd/beginner/cleanArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clean Architecture - Patterns, Practices and Principles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_2" id="__nav_5_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java Language Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Java Language Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_2_1" id="__nav_5_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Beginner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beginner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modern Java, the Big Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_3" id="__nav_5_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PMI-ACP Agile exam
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            PMI-ACP Agile exam
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths/pmiAcpExam/introductionToAgileProjectMgt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Agile Project Management and the PMI-ACP Exam
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solo Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Solo Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../soloCourses/java/streamsLambdaExpressions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From Collections to Streams using Lambda Expressions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Self Development Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Self Development Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../booksNovels/selfDevelopmentBooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self Development Books list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../booksNovels/atomicHabits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atomic Habits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-first-look-at-shell-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      A First Look at Shell Scripts
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="shell-scripting">Shell Scripting</h1>
+<h2 id="introduction">Introduction</h2>
+<ul>
+<li>Bash shell scripts<ul>
+<li>Execute bash commands from a file</li>
+<li>Automate sequences of shell commands</li>
+<li>Run them later or at scheduled times</li>
+<li>Take advantage of UNIX toolset</li>
+</ul>
+</li>
+<li>Who needs it?<ul>
+<li>System administrators</li>
+<li>Developers</li>
+<li>Power users</li>
+</ul>
+</li>
+<li>Bash scripts are very good at<ul>
+<li>File manipulation</li>
+<li>Running programs</li>
+<li>Processing text</li>
+</ul>
+</li>
+<li>Sometimes other languages are better<ul>
+<li>Examples : mathematical calculations, binary data, graphics</li>
+</ul>
+</li>
+</ul>
+<h2 id="a-first-look-at-shell-scripts">A First Look at Shell Scripts</h2>
+<ul>
+<li>
+<p>Creating a script</p>
+<ul>
+<li>A text file containing code</li>
+<li>To be run by an interpreter</li>
+<li>In this course, the interpreter will be Bash</li>
+<li>Will run each command in the file in order</li>
+</ul>
+</li>
+<li>
+<p>Choose a good text editor</p>
+<ul>
+<li>Emacs, vi</li>
+<li>Linux : Kate, gedit</li>
+<li>Mac OS : TextWrangler</li>
+</ul>
+</li>
+<li>
+<p>Executable permissions</p>
+<ul>
+<li>Use chmod command<ul>
+<li>"chmod u+x filename"</li>
+<li>"chmod a+x filename" to make it executable for everyone</li>
+<li>"chmod a+x filename" to remove the permission</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Calling the script</p>
+<ul>
+<li>If the script is not on you PATH<ul>
+<li>Include the directory when calling it</li>
+<li>./hw</li>
+<li>/home/reindert/hw</li>
+</ul>
+</li>
+<li>If the script is on you path<ul>
+<li>Just call it like a regular command</li>
+</ul>
+</li>
+<li>Tip : make a bin folder in your home<ul>
+<li>Put your scripts in there</li>
+<li>Add it to you path</li>
+<li>PATH="$PATH:~/bin"</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Shebang</p>
+<ul>
+<li>Shebang line<ul>
+<li>First line of file</li>
+<li>Starts with #!</li>
+<li>Specifies which interpreter should run the code</li>
+<li>Specify options for interpreter</li>
+</ul>
+</li>
+<li>Bash scripts<ul>
+<li>
+<h1 id="binbash">!/bin/bash</h1>
+</li>
+</ul>
+</li>
+<li>Other systems than Linux or Mac OS<ul>
+<li>May have bash in a different location</li>
+<li>
+<h1 id="usrbinenv-bash">!/usr/bin/env bash</h1>
+</li>
+<li>This will find bash on the user's PATH</li>
+<li>Cannot give options</li>
+<li>Result depends on the user's configuration</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Naming you script</p>
+<ul>
+<li>Don't name your script "test", "if" or "ls"<ul>
+<li>Conflicts with existing commands</li>
+</ul>
+</li>
+<li>Does a command with the same name exist?<ul>
+<li>Use "type"</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="variables">Variables</h2>
+<ul>
+<li>
+<p>Variables</p>
+<ul>
+<li>Used to store data by name</li>
+<li>To create : just assign a value<ul>
+<li>x=10</li>
+<li>If x already existed, it is assigned the new value</li>
+<li>Values containing spaces : use quotes</li>
+<li>Don't use whitespace around =</li>
+</ul>
+</li>
+<li>To get the value<ul>
+<li>Prefix with $</li>
+<li>echo $x</li>
+</ul>
+</li>
+<li>Bash variables have no data type<ul>
+<li>Basically just store a string</li>
+</ul>
+</li>
+<li>Names<ul>
+<li>Only letters, numbers and underscore are allowed</li>
+<li>First character should be a letter or an underscore</li>
+<li>Variable names are case-sensitive</li>
+</ul>
+</li>
+<li>Uppercase variables<ul>
+<li>Bash has many pre-defined variables</li>
+<li>PATH, HOME, SECONDS, IFS, etc.</li>
+<li>You don't override them by mistake</li>
+</ul>
+</li>
+<li>Good habit<ul>
+<li>Use lowercase names for you variables</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Using variables</p>
+<ul>
+<li>Good habit : surround your variables with quotes<ul>
+<li>Use "$x" instead of $x</li>
+<li>Prevent surprises when it contains spaces</li>
+<li>Use double quotes : keep meaning of dollar sign intact</li>
+</ul>
+</li>
+<li>Braces:<ul>
+<li>echo "${foo}bar"</li>
+<li>prints value of var "foo" followed by string "bar"</li>
+<li>echo "$foobar" prints value of "foobar"</li>
+<li>Using braces a lot is a good habit</li>
+</ul>
+</li>
+<li>Another good habit<ul>
+<li>Use $HOME instead of ~</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Reading input</p>
+<ul>
+<li>Reads a line of input into a variable</li>
+<li>read var</li>
+<li>is a shell bulletin</li>
+<li>"help read"</li>
+<li>"man builtins"</li>
+<li>read -p"Type your name:"name</li>
+</ul>
+</li>
+</ul>
+<h2 id="if-then-else">If, Then, Else</h2>
+<ul>
+<li>
+<p>If</p>
+<ul>
+<li>if testcode; then
+        #Code here gets executed
+        #When testcode succeeds
+    fi</li>
+<li>if testcode; then
+        #Code here gets executed
+        #When testcode succeeds
+    else
+        #Code here gets executed
+        #When testcode fails
+    fi</li>
+<li>if testcode; then successcode; else failcode; fi</li>
+<li>Else if is written as elif<ul>
+<li>Can have multiple elifs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Return codes</p>
+<ul>
+<li>Return code or exit status<ul>
+<li>Value returned by program on exit</li>
+<li>0 to 255</li>
+</ul>
+</li>
+<li>0 means success<ul>
+<li>other values are error codes</li>
+</ul>
+</li>
+<li>Shell script return values with exit<ul>
+<li>exit 0</li>
+</ul>
+</li>
+<li>Good habit : make sure your program exits with a correct value<ul>
+<li>ALways call exit with a value</li>
+</ul>
+</li>
+<li>If statement just looks at return code for "testcode"</li>
+</ul>
+</li>
+<li>
+<p>Conditional expressions</p>
+<ul>
+<li>Conditional expressions<ul>
+<li>Tests on files and directories</li>
+<li>Tests on strings</li>
+<li>Arithmetic tests</li>
+</ul>
+</li>
+<li>[[ Expression]]<ul>
+<li>[[ $str ]]                  \True if str is not empty</li>
+<li>[[ $str = "something" ]]    \True if str equals string "something"</li>
+<li>[[ $str="something" ]]      \True if always returns true!</li>
+<li>[[ -e $filename ]]          \True if file $filename exists</li>
+<li>[[ -d $dirname ]]           \True if $dirname is a directory</li>
+</ul>
+</li>
+<li>Spaces around the expression are very important!</li>
+<li>Same for swithces (-e) and equals sign</li>
+<li>Classical command: "test"<ul>
+<li>Also : [</li>
+<li>Harder to use, easier to make mistakes</li>
+<li>Only use for portability</li>
+</ul>
+</li>
+<li>[[...]] is a bash extension<ul>
+<li>Not a command but special syntax</li>
+<li>No quotes needed around variables</li>
+<li>Good habit : use [[..]] instead of [..]</li>
+</ul>
+</li>
+<li>Getting help<ul>
+<li>"help test" will show you most important info</li>
+<li>"help [[" will tell you about the extension</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Arithmetic tests</p>
+<ul>
+<li>For comparing integers Only</li>
+<li>[[ arg1 OP arg2]]</li>
+<li>Where OP is:<ul>
+<li>-eq: equality</li>
+<li>-ne: not equal</li>
+<li>-lt: less than</li>
+<li>-gt: greater than</li>
+</ul>
+</li>
+<li>Special variables<ul>
+<li>$# contains number of script arguments</li>
+<li>S? contains exit status for last command</li>
+</ul>
+</li>
+<li>To get the length of the string in a variable<ul>
+<li>Use ${#var}</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>And, Or, Not</p>
+<ul>
+<li>In a conditional expression</li>
+<li>Use ! to negate a test<ul>
+<li>[[ ! -e $file ]]</li>
+<li>Use spaces around !</li>
+</ul>
+</li>
+<li>Use &amp;&amp; for "and"<ul>
+<li>[[ $# -eq 1 &amp;&amp; $1 = "foo" ]]</li>
+<li>True if there is exactly 1 argument with value foo</li>
+</ul>
+</li>
+<li>Use || for "or"<ul>
+<li>[[ $a || $b ]]</li>
+<li>True if a or b contains a value (or both)</li>
+</ul>
+</li>
+<li>Dont even use -a, -o for and, or</li>
+</ul>
+</li>
+</ul>
+<h2 id="input-and-output">Input and Output</h2>
+<ul>
+<li>
+<p>echo</p>
+<ul>
+<li>Prints its arguments to standard output followed by a newline</li>
+<li>-n suppresses the newline</li>
+<li>-e allows use of escape sequences<ul>
+<li>\t : tab</li>
+<li>\b : backspace</li>
+</ul>
+</li>
+<li>These options are not portable to non-bash shells</li>
+</ul>
+</li>
+<li>
+<p>printf</p>
+<ul>
+<li>Can do more sophisticated output than echo</li>
+<li>Uses a format string for formatting</li>
+<li>Will not append a newline by default</li>
+</ul>
+</li>
+<li>
+<p>read</p>
+<ul>
+<li>Reads input into a variable</li>
+<li>"read x"</li>
+<li>No variable specified? will use REPLY</li>
+<li>-n or -N specifies number of characters to read</li>
+<li>-s will suppress output (useful for passwords)</li>
+<li>-r disallows escape sequences, line continuation</li>
+<li>Good habit : always use -r</li>
+<li>Several more useful options</li>
+</ul>
+</li>
+<li>
+<p>read can read words in a line into multiple variables</p>
+<ul>
+<li>read x y</li>
+<li>input"1 2 3": x=1, y="2 3"</li>
+<li>Uses IFS variable for delimiters</li>
+</ul>
+</li>
+<li>
+<p>Standard streams</p>
+<ul>
+<li>Three standard streams<ul>
+<li>input, output, error</li>
+<li>Represented by number (file descriptor), or special file</li>
+</ul>
+</li>
+<li>0 : Standard Input (stdin)<ul>
+<li>/dev/stdin</li>
+</ul>
+</li>
+<li>1 : Standard Output (stdout)<ul>
+<li>/dev/stdout</li>
+</ul>
+</li>
+<li>2 : Standard Error (stderr)<ul>
+<li>/dev/stderr</li>
+<li>Used for diagonistic or error message</li>
+</ul>
+</li>
+<li>/dev/null discards all data sent to it</li>
+</ul>
+</li>
+<li>
+<p>Redirection</p>
+<ul>
+<li>Get input from somewhere else, send output or errors somewhere else</li>
+<li>Input redirection : &lt;<ul>
+<li>grep milk &lt; shoppingnotes.txt</li>
+</ul>
+</li>
+<li>Output redirection : &gt;<ul>
+<li>ls &gt; listing.txt</li>
+<li>Will overwrite existing files</li>
+<li>Although this can be customized with the set command</li>
+<li>
+<blockquote>
+<blockquote>
+<p>appends to the end of a file</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>Pipes<ul>
+<li>ls | grep x</li>
+</ul>
+</li>
+<li>Redirect a specific stream with N&gt;<ul>
+<li>"cmd 2&gt; /dev/null" discards all errors</li>
+</ul>
+</li>
+<li>Redirect to a specific stream with &gt;&amp;N<ul>
+<li>
+<blockquote>
+<p>&amp;2 sends output to stderr (Equivalent to 1&gt;&amp;2)</p>
+</blockquote>
+</li>
+<li>2&gt;&amp;1 redirects stderr into stdout</li>
+</ul>
+</li>
+<li>Sending both error and output to a single file<ul>
+<li>cmd &gt; logfile 2&gt;&amp;1</li>
+</ul>
+</li>
+<li>Allowed anywhere on the command line, but order matters<ul>
+<li>"cmd &lt; inputfile &gt; outputfile" is similar to "&gt;outputfile cmd &lt; inputfile"</li>
+<li>cmd &gt;logfile 2&gt;&amp;1 (Sends errors to the logfile)</li>
+<li>2&gt;&amp;1 &gt;logfile cmd (Sends errors to stdout)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="control-flows">Control Flows</h2>
+<ul>
+<li>
+<p>while
+        while test; do
+            ;; code to be repeated
+        done</p>
+</li>
+<li>
+<p>until
+        until test; do
+            ;; code to be repeated
+        done</p>
+<ul>
+<li>Repeats code in the block</li>
+<li>Continues as long as test returns false</li>
+</ul>
+</li>
+<li>
+<p>The classic for loop
+        for VAR in WORDS; do
+            ;; code to be repeated
+        done</p>
+<ul>
+<li>Assign each word in WORDS to var in turn</li>
+<li>Will stop when no words are left</li>
+<li>Do NOT quote words</li>
+</ul>
+</li>
+<li>
+<p>The C-style for loop
+        for (( INIT; TEST; UPDATE )); do
+            ;; loop code
+        done</p>
+<ul>
+<li>Use double parentheses</li>
+<li>First expression : initialize your loop variables</li>
+<li>Second expression : a test. The loop will run as long as this is true</li>
+<li>Third expression : update the loop variables</li>
+<li>Expression use syntax for arithmetic evaluation</li>
+</ul>
+</li>
+<li>
+<p>Break and Continue</p>
+<ul>
+<li>break<ul>
+<li>quits the loop</li>
+</ul>
+</li>
+<li>continue<ul>
+<li>skips the rest of the current iteration</li>
+<li>continues with the next iteration</li>
+</ul>
+</li>
+<li>Both can be used in for, while and until</li>
+</ul>
+</li>
+<li>
+<p>case
+        case WORD in
+            PATTERN1)
+                code for pattern 1;;
+            PATTERN2)
+                code for pattern 2;;
+            ...
+            PATTERNn)
+                code for pattern n;;
+        esac</p>
+<ul>
+<li>Matches word with patterns<ul>
+<li>Pattern matching is the same as with matching filename patterns</li>
+<li>Use 8, ?, []</li>
+</ul>
+</li>
+<li>Code for first pattern that mathes gets executed</li>
+<li>End code with ;;<ul>
+<li>SO you can use multiple statements separated by ;</li>
+</ul>
+</li>
+<li>Multiple patterns separated by |</li>
+</ul>
+</li>
+<li>
+<p>Command groups</p>
+<ul>
+<li>Group commands with {}<ul>
+<li>Will group them into a single statement</li>
+<li>Can use I/O redirection for the whole group</li>
+<li>Use the group in an if statement or while loop</li>
+<li>Return status is that of the last command in the group</li>
+</ul>
+</li>
+<li>{ cmd1;cmd2;cmd3 }<ul>
+<li>Separate the commands with newlines or semicolons</li>
+<li>Use spaces around braces</li>
+<li>Ending semicolon or newline not optional</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>|| and &amp;&amp;</p>
+<ul>
+<li>Execute next statement depending on return status of previous statement<ul>
+<li>Basically : short for if</li>
+</ul>
+</li>
+<li>&amp;&amp;<ul>
+<li>Will execute next statement only if previous one succeeded</li>
+<li>mkdir newdir &amp;&amp; cd newdir</li>
+</ul>
+</li>
+<li>||<ul>
+<li>Will execute next statement only if previous one failed</li>
+<li>[[ $1 ]] || echo"missing argument"&gt;&amp;2</li>
+</ul>
+</li>
+<li>[[ $1 ]] || echo"missing argument"&gt;&amp;2&amp;&amp; exit 1<ul>
+<li>Dont do this: will always exit</li>
+<li>[[ $1 ]] || {echo""missing argument"&gt;&2; exit 1;}</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="variables-2">Variables 2</h2>
+<ul>
+<li>
+<p>Variable attributes</p>
+<ul>
+<li>Variables hold simple string values<ul>
+<li>But can also have extra attributes</li>
+</ul>
+</li>
+<li>Turn these on/off with declare<ul>
+<li>You can also use "typeset" (but that is deprecated)</li>
+</ul>
+</li>
+<li>Print attributes for a variable<ul>
+<li>declare -p var</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Integer Variables</p>
+<ul>
+<li>Interger variable<ul>
+<li>declare -i num</li>
+<li>Now $num can hold only numbers</li>
+<li>Trying to set it to something else will NOT give an error</li>
+<li>Instead, this will set a value of 0</li>
+</ul>
+</li>
+<li>Unset an attribute with +<ul>
+<li>declare +i num</li>
+</ul>
+</li>
+<li>Triggers arithmetic evaluation</li>
+</ul>
+</li>
+<li>
+<p>Arithmetic expressions</p>
+<ul>
+<li>C-like syntax for doing calculations</li>
+<li>let command<ul>
+<li>let n=100/2</li>
+</ul>
+</li>
+<li>(( .. ))<ul>
+<li>((++x))</li>
+<li>((p=x/100))</li>
+<li>(( p=$(ls |wc-1)*10 ))</li>
+<li>This is a command equivalent to let</li>
+</ul>
+</li>
+<li>$(( .. ))<ul>
+<li>This is substitution, not a command</li>
+<li>p=$((x / 100))</li>
+</ul>
+</li>
+<li>With a variable declared as an integer<ul>
+<li>num="30 % 8"</li>
+</ul>
+</li>
+<li>No need to quote variables</li>
+<li>(( .. )) can be used in if, while<ul>
+<li>0 is false, anything greater than 0 is true</li>
+<li>(( 0 )) || echo "false"</li>
+</ul>
+</li>
+<li>Pitfall : numbers with leading zeroes are interpreted as octal<ul>
+<li>So 010 = 8</li>
+</ul>
+</li>
+<li>(( ..; ..; .. )) syntax in for loop is not an arithmetic expression<ul>
+<li>but the three expressions separated by ; are</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Read only variables</p>
+<ul>
+<li>declare -r constant="some value"</li>
+<li>Cannot give $constant another value</li>
+<li>Bach will report an error</li>
+</ul>
+</li>
+<li>
+<p>Exporting variables</p>
+<ul>
+<li>By default, variables are local to you script<ul>
+<li>Or terminal session</li>
+</ul>
+</li>
+<li>Export a variable<ul>
+<li>To make it available to subprocesses</li>
+<li>You cannot pass a variable to the program that runs you script</li>
+</ul>
+</li>
+<li>export var<ul>
+<li>export var="value"</li>
+</ul>
+</li>
+<li>declare -x var<ul>
+<li>declare -x var="value"</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Arrays</p>
+<ul>
+<li>An array can hold multiple values<ul>
+<li>Stored and retrieved by index</li>
+</ul>
+</li>
+<li>Storing a value<ul>
+<li>x[0] = "some"</li>
+<li>x[1] = "word"</li>
+</ul>
+</li>
+<li>Retrieving a value<ul>
+<li>${x[0]} : same</li>
+<li>${x[1]} : word</li>
+<li>${x[@]} or ${x[<em>]} retrieve all values (quoting works like $</em>, $@)</li>
+</ul>
+</li>
+<li>declare -a x<ul>
+<li>Or simply assign with an index like above</li>
+</ul>
+</li>
+<li>Intializing an array<ul>
+<li>ar = (1 2 3 a b c)</li>
+</ul>
+</li>
+<li>Count the number of elements in $array<ul>
+<li>${#array[@]}</li>
+</ul>
+</li>
+<li>The indices in $array<ul>
+<li>${!array[@]}</li>
+<li>The can be gaps in the indices</li>
+</ul>
+</li>
+<li>You cannot export an array</li>
+<li>Bash 4 supports associative Arrays<ul>
+<li>Where elements are stored and retrieved by a name, not an index</li>
+<li>declare -A array</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="handling-script-parameters">Handling script parameters</h2>
+<ul>
+<li>Special variables<ul>
+<li>Hold the n-th command line argument : $1, $2, etc.</li>
+<li>Above 9 use braces : ${10}, ${25}</li>
+<li>$0<ul>
+<li>Holds name of the script as it was called</li>
+</ul>
+</li>
+<li>$@ : All<ul>
+<li>Equivalent to $1 $2 $3 ... $N</li>
+<li>But when double quoted : "$1" "$2" "$3" ... "$N"</li>
+<li>So parameters containing multiple words stay intact</li>
+</ul>
+</li>
+<li>$*<ul>
+<li>Equivalent to $1 $2 $3 ... $N</li>
+<li>But when double quoted : "$1 $2 $3 ... $N"</li>
+<li>Dont use this, use $@ instead</li>
+</ul>
+</li>
+<li>$#<ul>
+<li>Holds the number of arguments passed to the script</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Shift<ul>
+<li>Removes the first argument</li>
+<li>All positions paramters shift<ul>
+<li>$2 -&gt; $1</li>
+<li>$3 -&gt; $2</li>
+<li>$4 -&gt; $3</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>$# lowered by 1</li>
+</ul>
+</li>
+<li>Getopts<ul>
+<li>Utility to help parse argument lists<ul>
+<li>Expects options to start with a dash (-x)</li>
+<li>Allows options that take an argument (-f file)</li>
+</ul>
+</li>
+<li>getopts optstring name</li>
+<li>optstring<ul>
+<li>A list of expected options</li>
+<li>"ab" will let your script handle an option -a and/or -b</li>
+<li>Append : to options that take an argument</li>
+<li>"a:b" will let a take an argument, but not b</li>
+</ul>
+</li>
+<li>name<ul>
+<li>The name of a variable</li>
+<li>Every time you get getopts, it will place the next option into $name</li>
+</ul>
+</li>
+<li>getopts returns false when no more options are left</li>
+<li>Any word not starting with a dash will end option processing<ul>
+<li>So anything after the options, you have to parse for yourself</li>
+<li>An option "--" will be seen as the end of options as well</li>
+</ul>
+</li>
+<li>Arguments for options will be put in OPTARG</li>
+<li>OPTIND holds the index of the next argument to be processed</li>
+</ul>
+</li>
+</ul>
+<h2 id="shell-functions">Shell Functions</h2>
+<ul>
+<li>Functions<ul>
+<li>Define your own command</li>
+<li>name () { ... }<ul>
+<li>You can run the code in the braces as a new command</li>
+<li>Other equivalent syntax (not recommended)<ul>
+<li>function name () { ... }</li>
+<li>function name { ... }</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Execute it like any command<ul>
+<li>Give it arguments</li>
+<li>Use redirection</li>
+</ul>
+</li>
+<li>Positional parameters are available for function arguments<ul>
+<li>$1, $2, ...</li>
+</ul>
+</li>
+<li>Naming your functions<ul>
+<li>Same rules as for naming scripts : don't override existing commands</li>
+</ul>
+</li>
+<li>Bash variables are globally visible<ul>
+<li>In a function, you can make a variable local to that function</li>
+<li>Use declare or local</li>
+</ul>
+</li>
+<li>Exit a function with return<ul>
+<li>returns a status code, like exit</li>
+<li>Without a return statement, function returns status of last statement</li>
+</ul>
+</li>
+<li>Returning any other value<ul>
+<li>Use a global variable</li>
+<li>Or send the data to output and use command substitution</li>
+</ul>
+</li>
+<li>Exporting a function<ul>
+<li>export -f fun</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Miscellaneous<ul>
+<li>Functions and redirection<ul>
+<li>Redirection is allowed immediately after function definition</li>
+<li>Will be executed when function is run</li>
+</ul>
+</li>
+<li>A command in a pipeline runs in a subshell</li>
+<li>Here documents<ul>
+<li>Have a command read its input from the source file</li>
+<li>&lt;&lt; Tag</li>
+<li>Tag defines end of input</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="fun-with-strings">Fun with Strings</h2>
+<ul>
+<li>Parameter Expansion<ul>
+<li>Allows powerful string manipulation</li>
+<li>${#var} : length of $var</li>
+</ul>
+</li>
+<li>Removing a pattern<ul>
+<li>Removing part of a string<ul>
+<li>${var#pattern} : Removes shortest match from begin of string</li>
+<li>${var##pattern} : Removes longest match from begin of string</li>
+<li>${var%pattern} : Removes shortest macth from end of string</li>
+<li>${var%%pattern} : Removes longest match from end of string</li>
+</ul>
+</li>
+<li>Pattern matching is like pathname matching with *, ? and []</li>
+<li>Example : i="/Users/reindert/demo.txt"
+        ${i#<em>/} returns "Users/reindert/demo.ext"
+        ${i##</em>/} returns "demo.txt"
+        ${i%.<em>} returns "/Users/reindert/demo"
+        ${i%/</em>} returns "/Users/reindert"</li>
+</ul>
+</li>
+<li>Search and replace<ul>
+<li>Search and replace<ul>
+<li>${var/pattern/string} : Substitute first match with string</li>
+<li>${var//pattern/string} : Substitute all matches with string</li>
+</ul>
+</li>
+<li>Anchor your pattern<ul>
+<li>${var/#pattern/string} : Matches beginning of the string</li>
+<li>${var/%pattern/string} : Matches end of the string</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Default values<ul>
+<li>Default value<ul>
+<li>${var:-value} : Will evaluate to "value" if var is empty or unset</li>
+<li>${var-value} : Similar, but only if var is unset</li>
+</ul>
+</li>
+<li>Assign a default value<ul>
+<li>${var:=value} : If var was empty or unset, this evaluates to "value" and assigns it to var</li>
+<li>${var=value} : Similar, but only if var is unset</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Conditional Expression Patterns<ul>
+<li>==, != operators in [[ .. ]] do pattern matching<ul>
+<li>== is the same operator as =</li>
+<li>[[ $var == pattern ]] : Returns true wehn $var matches the pattern</li>
+<li>Pattern matching is like pathname matching with *, ? and []</li>
+</ul>
+</li>
+<li>Use quotes to force string matching</li>
+<li>=~ does regular expression matching<ul>
+<li>Very powerful</li>
+<li>Uses POSIX extended regular expressions</li>
+<li>? matches the token before it 0 or 1 times<ul>
+<li>[0-9]? will match a single digit or nothing at all</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>matches the token before it for any number of times</li>
+<li>[a-z]* will match any lowercase text or nothing at all</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>matches the token before it for one or more times</li>
+<li>[0-9]+ will match 1 or more digits</li>
+</ul>
+</li>
+<li>^ matches start of string</li>
+<li>$ macthes end of string</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>End of options<ul>
+<li>Is denoted by --<ul>
+<li>Supported by many UNIX commands</li>
+<li>Arguments after this will not be interpreted as options</li>
+</ul>
+</li>
+<li>Makes it safe when working with data that starts with a dash</li>
+<li>Good habit :<ul>
+<li>When you use a variable as an argument for a command</li>
+<li>And the contents of the variable are not under you Control</li>
+<li>Use -- with the commands you call</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="many-ways-to-run-your-scripts">Many Ways to Run Your Scripts</h2>
+<ul>
+<li>Running code from a file<ul>
+<li>Using hash-bang and running it as a command<ul>
+<li>Will start a bash subprocess</li>
+<li>Executable permission has to be set</li>
+</ul>
+</li>
+<li>Or when it does not have a hash-bang<ul>
+<li>bash myscript</li>
+<li>No permission necessary</li>
+<li>bash -x myscript : Debugs myscript</li>
+</ul>
+</li>
+<li>TO import code in the current shell process<ul>
+<li>source myscript</li>
+<li>.myscript</li>
+<li>This is basically what happens with .bashrc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Background and nohup<ul>
+<li>Put a command in the background with &amp;<ul>
+<li>myscript &amp;</li>
+<li>It will be disconnected from the interactive session</li>
+<li>Will be suspended if it tries to read input from the terminal</li>
+</ul>
+</li>
+<li>Long-running scripts<ul>
+<li>Keep your script running when you exit the terminal session</li>
+<li>nohup myscript &amp;</li>
+</ul>
+</li>
+<li>Run your script with a lower priority<ul>
+<li>nice myscript</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Redurecting with exec<ul>
+<li>Redirect I/O for the whole script<ul>
+<li>Useful for logging</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Running your script another time<ul>
+<li>At<ul>
+<li>Will execute your script at a specific time</li>
+</ul>
+</li>
+<li>Cron<ul>
+<li>Will execute your script according to a schedule</li>
+<li>On Mac OS, use launchd</li>
+<li>On Ubuntu, you may want to look at Upstart</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>set and shopt<ul>
+<li>Customize bash behaviour with set and shopt</li>
+<li>set<ul>
+<li>-x prints each command with its arguments as it is executed</li>
+<li>-u gives an error when using an uninitialised variable and exits script</li>
+<li>-n read commands but do not execute</li>
+<li>-v print each command as it is read</li>
+<li>-e exits script whenever a command fails</li>
+</ul>
+</li>
+<li>shopt<ul>
+<li>Can set many options with -s, unset with -u</li>
+<li>shopt -s nocaseglob : Ignore case with pathname expansion</li>
+<li>shopt -s extglob : Enable extended pattern matching</li>
+<li>shopt -s dotglob : Include hidden files with pathname expansion</li>
+<li>set -o noclobber : Don;t overwrite files on redirection operations</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

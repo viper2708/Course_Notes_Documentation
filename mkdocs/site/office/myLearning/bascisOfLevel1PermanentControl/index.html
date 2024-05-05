@@ -1,0 +1,3102 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../cloudPlatformProfessionalServices/advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns/">
+      
+      
+        <link rel="next" href="../sustainableITAwareness/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Basics of Level 1 Permanent Control - Viper Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#basics-of-level-1-permanent-control" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Viper Docs" class="md-header__button md-logo" aria-label="Viper Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Viper Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Basics of Level 1 Permanent Control
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Viper Docs" class="md-nav__button md-logo" aria-label="Viper Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Viper Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Free Code Camp
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Free Code Camp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../freeCodeCamp/freeCodeCamp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Free Code Camp Contents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../freeCodeCamp/youtube/sqlDatabaseCourse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sql Database Course
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Nptel
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Nptel
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nptel/nptel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nptel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System Analysis and Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            System Analysis and Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nptel/systemAnalysisAndDesign/module1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information for Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Office
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Office
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../office/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Office contents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Platform Professional Services
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Platform Professional Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Beginner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beginner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/beginner/goToCloudPlatform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go to Cloud Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/beginner/gts2020CloudStrategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GTS 2020 Cloud Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/beginner/processesAndOperationsInSG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processes and Operations in SG Cloud Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Intermediate
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Intermediate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_1" id="__nav_4_2_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Platform Delivery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Platform Delivery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/deepDiveIntoServiceCatalog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep Dive into Service Catalog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/doItNowService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DoItNow Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_2" id="__nav_4_2_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Platform Use
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Platform Use
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/cloudNativeArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Native ArchitectureCloud Native Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/introductionToCloudArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Cloud Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3" id="__nav_4_2_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Core Services Discovery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core Services Discovery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/blockStorageService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Block Storage Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/certificateService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cerficate Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudOrchestrationService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Orchestration Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudPlatformComputeService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Platform Compute Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/fileStorageService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Storage Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IAMService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAM Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IPAM_DNSService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPAM-DNS Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSFactoryService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OS Factory Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSConfigurationService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OS Configuration Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/objectStorageService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Object Storage Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/securityGroupService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Group Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_3_1" id="__nav_4_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Persistence in Cloud Platform
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Persistence in Cloud Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloudPlatformProfessionalServices/advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Native Architecture Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    My Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            My Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Basics of Level 1 Permanent Control
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Basics of Level 1 Permanent Control
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reminder-of-the-principles-of-permanent-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reminder of the principles of Permanent Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-a-control-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing a Control Plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-level-1-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing Level 1 Controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-key-principles-for-the-execution-of-1st-level-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common key principles for the execution of 1st level controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-permament-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring permament control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-improvement-if-the-permament-control-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous improvement if the permament control framework
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sustainableITAwareness/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sustainable IT Awareness
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fightAgainstCorruption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protection Against Corruption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../protectionOfPersonalData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protection of Personal Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preventionOfSexualHarassment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prevention of Sexual Harassment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../csrHistoryStandardsOpportunities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSR History Standards and Opportunities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PluralSight
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            PluralSight
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/pluralsight/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PluralSight Contents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blinc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blinc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Phase 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Phase 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/blinc/phase1/fundamentalsOfJava/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fundamentals of Java
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/blinc/phase1/generics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/blinc/phase1/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/blinc/phase1/jdbcjavaPlatform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JDBC Java Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/blinc/phase1/multithreading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi Threading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/blinc/phase1/shellScripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/blinc/phase1/tddTheBigPicture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TDD The Big Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Phase 2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Phase 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/blinc/phase2/javaWebFundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java Wev Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/blinc/phase2/springTheBigPicture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spring The Big Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Paths
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Paths
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Domain Driven Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Domain Driven Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_1_1" id="__nav_5_3_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Beginner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beginner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/paths/bdd/beginner/cleanArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clean Architecture - Patterns, Practices and Principles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_2" id="__nav_5_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java Language Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Java Language Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_2_1" id="__nav_5_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Beginner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beginner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modern Java, the Big Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_3" id="__nav_5_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PMI-ACP Agile exam
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            PMI-ACP Agile exam
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/paths/pmiAcpExam/introductionToAgileProjectMgt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Agile Project Management and the PMI-ACP Exam
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solo Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Solo Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/soloCourses/java/streamsLambdaExpressions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From Collections to Streams using Lambda Expressions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Self Development Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Self Development Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../booksNovels/selfDevelopmentBooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self Development Books list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../booksNovels/atomicHabits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atomic Habits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#reminder-of-the-principles-of-permanent-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reminder of the principles of Permanent Control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-a-control-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing a Control Plan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#designing-level-1-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Designing Level 1 Controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-key-principles-for-the-execution-of-1st-level-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      Common key principles for the execution of 1st level controls
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring-permament-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monitoring permament control
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#continuous-improvement-if-the-permament-control-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Continuous improvement if the permament control framework
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="basics-of-level-1-permanent-control">Basics of Level 1 Permanent Control</h1>
+<h2 id="reminder-of-the-principles-of-permanent-control">Reminder of the principles of Permanent Control</h2>
+<ul>
+<li>
+<p>L1C Definition</p>
+<ul>
+<li>
+<p>Internal Control</p>
+<ul>
+<li>In France, the main principles of internal control have been expressed in law by the decree of  November 3rd, 2014 recently complemented by the decree of February 25th, 2021. The SG Code describes     the main internal control principles and procedures that apply to the Societe Generale Group in     compliance with this regulatory framework.</li>
+<li>Internal control consists of both permanent control and periodic control (audit and inspection)</li>
+<li>Level 1 permanent control (L1C) contributes to containing non-financial risks to the level  accepted in the Group's risk appetite. Level 2 permanent control(L2C) and periodic control (or level     3) are intended to verify the correct and continuous functioning of level 1 permanent control, but  in no way replace the first one</li>
+</ul>
+</li>
+<li>
+<p>Permanent Control</p>
+<ul>
+<li>The 3 lines of defense model, defining the distribution of roles and responsibilities for   controls and risk management in on organisation, is applied at Societe Generale as follows:<ul>
+<li>The third line of defense (LOD3) consists of Inspection and Internal Audit function. It is  strictly independent  of the first two lines of defense and ensures, in particular, a periodic   review of the first two weeks</li>
+<li>The second line of defense (LOD2) consists of Risk, Finance and Compliance functions</li>
+<li>The other BU/SU are the first line of defense (LOD1)</li>
+</ul>
+</li>
+<li>DGLE/PIC is responsible for the permanent control framework and coordinates the Group's internal    control. The Director of DGLE/PIC also has a functional authority over the heads of the Level 2    control teams</li>
+</ul>
+</li>
+<li>
+<p>Internal Control Framework</p>
+<ul>
+<li>Permanent Control Framework<ul>
+<li>LOD1<ul>
+<li>Business Units (L1C)</li>
+<li>Service Units (L1C) (Except those in charge of LOD2)</li>
+</ul>
+</li>
+<li>LOD2 (All L2C in LOD2 reports to DGLE/PIC)<ul>
+<li>Risk function (L1C and L2C)</li>
+<li>Finance function (L1C and L2C)</li>
+<li>Compliance function (L1C and L2C)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Periodic Control<ul>
+<li>LOD3<ul>
+<li>IGAD (L1C) (Internal Inspection and Audit function)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>L1C Objective</p>
+<ul>
+<li>The objective of Level 1 permanent control framework is to protect the bank by contributing to the control/mitigation of its non-financial risks</li>
+<li>The permanent control framework therefore contributes fully to protecting the bank, its financial performance, and its reputation</li>
+</ul>
+</li>
+<li>
+<p>Key Stakeholders</p>
+<ul>
+<li>The operational staff and their managers<ul>
+<li>They are responsible:<ul>
+<li>Identifying, accessing, and controlling the risks</li>
+<li>Deploying the control framework within the area of responsibility</li>
+<li>Disassembling the risk and control culture within their teams</li>
+</ul>
+</li>
+<li>Transversal functions (IS/ISS, legal, RH, communication, etc.)<ul>
+<li>They contribute to the LOD2 for the definition of:<ul>
+<li>Norms, standards and procedures applicable to permanent control frameworks in their area of expertise</li>
+<li>Control needs and provide expertise on the transversal analysis of the deployment of level 1 permanent control in their area of expertise to DGLE/PIC and the LOD2</li>
+</ul>
+</li>
+<li>They may also be consulted via the LOD2s by the first line of defense concerning the implementation and operational application of the principles of protecting/securing the activity in their area of expertise</li>
+</ul>
+</li>
+<li>The second line of defense (LOD2:RISQ, CPLE and DFIN)<ul>
+<li>The LOD2s define the Group norms and principles for securing operational risk in their respective areas. They support the first line of defense(LOD1)</li>
+<li>The level 2 control teams (L2C), within LOD2, are independent teams that contribute through a second level of assesssment to their effectiveness of the level 1 control framework</li>
+</ul>
+</li>
+<li>CORO (Control and Operational Risk Officer)<ul>
+<li>The CORO and the OSM/ORM/R2L1C are responsible for:<ul>
+<li>Implementing, coordinating, monitoring, challenging, and leading the level 1 control framework</li>
+<li>Controlling the operational risks of their BU and SU</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The department in charge of the permanent control and internal control coordination (DGLE/PIC)<ul>
+<li>Is responsible for the permanent control framework (definition of the Group's norms and standards for level 1(L1Cs) and level 2 (L2Cs) control, coordination of the network of central COROs and L2Cs,etc.) and coordinates the Group's internal control.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Risk-based approach</p>
+<ul>
+<li>The permanent control system is applied in priority to significant risks, so it is necessary to adopt a risk-based approach<ul>
+<li>The permanent control framework must be proportionate to the severity of the risks to which the Group is exposed</li>
+<li>The ambition of this framework is to efficiently contain non-financial risks, the possible materialisation of which have a significant impact on the financial situation and/or reputation of the Group, or of a Group entity</li>
+<li>Regular assesssment of these risks is therefore necessary to keep them at the level accepted in the Group's risk appetite</li>
+</ul>
+</li>
+<li>The regular assesssment of risks and controls is done through Risk and Control Self-Assessment (RCSA) exercises, the following way:<ul>
+<li>Each of our activities has its own Intrinsic risks (II)</li>
+<li>For which Risk Management Frameworks are put in place (RMFs) according to the risk appetite</li>
+<li>To limit our exposure to Residual Risk (RR)</li>
+</ul>
+</li>
+<li>The regular assesssment of risks and controls, in addition to being a regulatory obligation, is an essential part of the permanent control framework.<ul>
+<li>In other words, for each manager, the RCSA exercise amounts to an assesssment of their residual risk. To do this, he/she assesses his/her intrinsic risk and the soundness of his/her risk control framework</li>
+<li>These assesssments (low, moderate, important, critical) also make it possible to prioritize/proportion the framework on risks carrying a significant impact.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>APRC framework</p>
+<ul>
+<li>As part of the Group's internal control and operational risk management framework Societe Generale has set up a permanent control referentiel, known as APRC, which lists:<ul>
+<li>All of activities (A) of the Group</li>
+<li>Their processes (P)</li>
+<li>TThe main risks (R) associated with these P's (exclusively those of the Group's operational risk taxonomy)</li>
+<li>The control needs (C) necessary to reduce these risks(listed in the Normative Controls Library : NCL)</li>
+</ul>
+</li>
+<li>The APRC referentiel provides an overall view, at Group level, of the permanent control framework, independently of the organizational structure. It considers the various constraints (operational, regulatory, etc.) that weigh on all activities in order to limit operational risks. This referentiel is used by the entire Group and its constant improvement is achieved through the active participation of all</li>
+<li>It applies to all Legal and Regulatory Entities (ELR) identified in the Scope of deployment of the permanent control framework of the Societe Generale Group</li>
+</ul>
+</li>
+<li>
+<p>Continuous improvement loop</p>
+<ul>
+<li>Strategy and risk appetite<ul>
+<li>Processes (P)</li>
+<li>Risks (R)</li>
+<li>Controls (C)</li>
+<li>Losses and incidents</li>
+<li>Plans of actions</li>
+<li>Reporting and steering</li>
+</ul>
+</li>
+<li>The whole picture must be reported so that management (all the way upto the top management and the supervisory body) can ensure that activities are carried out in accordance with the strategy and risk appetite and can decide on remedial actions within its authority. The entire framework is managed with a view to continuous improvement.</li>
+<li>The existence of these reports is a major regulatory requirement</li>
+<li>All steps are subject to continuous improvement, which we will check at the end of the training.</li>
+</ul>
+</li>
+<li>
+<p>Chapter summary:</p>
+<ul>
+<li>In this section, we have discussed the basic elements of internal control, through the definitions, objectives and stakeholders of different processes and reference framework:<ul>
+<li>Internal control encompasses all the means implemented to contribute to the control of the company risks; in this way it aims to protect the bank</li>
+<li>Level 1 permanent control contributes to containing all non-financial risks; the permanent control framework must be deployed throughout the Societe Generale Group; i.e., including all subsidiaries and branches, joint ventures, etc.</li>
+<li>The permanent control framework is made up of six iterative stages : processes, risks, controls, losses and incidents, plans of actions, reporting and steering</li>
+<li>The risk-based approach is to be preferred, and the permanent control framework is to be applied as a priority to the significant risks to which the Group is exposed</li>
+<li>The stakeholders in the framework: the first line of defense(LOD1) made up of operational staff and their managers, the COROs, the transversal functions; the second line of defense (LOD2), periodic control (LOD3) and the management in charge of the permanent control framework and internal control coordination (DGLE/PIC)</li>
+<li>The APRC referential : Activities, Processes, Risks, Control needs</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="designing-a-control-plan">Designing a Control Plan</h2>
+<ul>
+<li>
+<p>Blueprint : general principles</p>
+<ul>
+<li>The implementation of the APRC approach, for each entity of the Group included in the deployment scope, and at the appropriate level of detail, is done through a 'Blueprint'. Let's see what it consists of:<ul>
+<li>The blueprint is the instrument for selecting the content of the activities and processes in the area of responsibility</li>
+<li>The blueprint is the "golden source" to be used when organising and performing exercises related to the control of non-financial risks (implementation of the APRC approach, risk management [RCSA, COMPASS, etc.], collection of losses and incidents, etc.)</li>
+<li>Based on the selected activities and processes, the blueprint inherits a level 1 control plan. The control plan makes it possible to determine the control needs applicable to the scope of responsibility, for the control of non-financial risks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Control Plan : General principles</p>
+<ul>
+<li>Building a blueprint requires selecting from the APRC reference framework:<ul>
+<li>The activities you are responsible for</li>
+<li>The processes attached to the activities applicable to you</li>
+<li>The applicable controls contributing to the control of risks in these processes</li>
+</ul>
+</li>
+<li>In short, APRC allows us to say : we know what we are doing, we know whats risks we face, and we know what controls to put in place to manage these risks</li>
+<li>The blueprint is the instrument used to select the activities and processes related to the operations contained in a given scope of responsibility</li>
+<li>Based on this description, and depending on the activities and processes selected, the blueprint inherits a control plan to be deployed from the APRC referentiel</li>
+<li>The risk control framework is therefore the implementation of this control plan</li>
+</ul>
+</li>
+<li>
+<p>Chapter summary</p>
+<ul>
+<li>In this section, we have discussed the elements of a blueprint and its usefulness in the context of permanent control. We have also discussed the principles of the control plan and the qualifications of the process and the control need:<ul>
+<li>The blueprint is the instrument for selecting the content of the scope of responsibility for controlling non-financial risks</li>
+<li>The blueprint is the golden source to be used when organising and conducting non-financial risk management exercises</li>
+<li>The person responsible for a perimeter establishes a blueprint (at least one) describing the entire perimeter</li>
+<li>Controls contribute to containing the risks of the processes associated with the activities applicable to you and for which you are responsible</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="designing-level-1-controls">Designing Level 1 Controls</h2>
+<ul>
+<li>
+<p>Reminder of the different type of L1Cs</p>
+<ul>
+<li>Let's look at the different frameworks for level 1 controls:<ul>
+<li>GPS is the Group's default tool which covers the vast majority of the Group's level 1 controls. It is available with all the functionalities required to deploy a permanent control, including a library of reference controls (generic controls). It is deployed in all BUs/SUs</li>
+<li>Other tools : Based on business control tools or business management applications can also be used if they meet the Group's requirements (eg., ARCHER, MORSE+, GTC, etc.)</li>
+<li>Committees : Committees with formalized and approved terms of reference including controls can be extremely efficient as a risk mitigation measure (eg. New Product Committee)<ul>
+<li>Committees or work group whose terms of reference have been defined, approved, reviewed, and published<ul>
+<li>Example :<ul>
+<li>New Product Committee</li>
+<li>Incident Committee</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>"IT-Driven" automated controls : Some controls can be automated and integrated into tools to prevent the occurence of an operational risk or to detect its possible materialization (eg. input control in a form, blocking control)<ul>
+<li>System and (semi) automated application of a rule within a business process/flow.<ul>
+<li>Example :<ul>
+<li>Automatic calculation of the effective annual interest rate</li>
+<li>List of pending/blocked transactions</li>
+<li>Alerts on transactions with unauthorized counterparties</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In an organizational and governance framework that can help to better secure the activity (eg. Chinese wall) and that it is interesting to highlight<ul>
+<li>Policies, instructions, organizational charts, frameworks, etc. published and regularly updated.<ul>
+<li>Example :<ul>
+<li>Published organizational chart</li>
+<li>Signed Code of Conduct</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Let us continue by exploring the main elements of the controls<ul>
+<li>Objectives<ul>
+<li>Reminder :<ul>
+<li>Their purpose is to ensure, where justified, that activities are carried out correctly, while remaining proportionate to the risks</li>
+</ul>
+</li>
+<li>The objectives of L1Cs<ul>
+<li>Ensure the quality and proper execution of processes.</li>
+<li>Mitigate our risks through automated controls, in particular, through automated blocking controls, i.e., preventive controls.</li>
+<li>Identify situations where the risk has already materialised through detective controls</li>
+<li>To limit the impact of the materialisation of a risk, i.e., through corrective controls</li>
+<li>Ensuring the proper application of existing procedures and the control of all risks relating to processes, operations and/or accounts</li>
+<li>Alerting the hierarchy in the event of anomalies or malfunctions.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Characteristics<ul>
+<li>Depending on the degree of automation of the control procedures<ul>
+<li>Manual controls / semi-automated controls / automated controls</li>
+</ul>
+</li>
+<li>Depending on the person carrying out the controls<ul>
+<li>Control carried out by a manager, "4 eyes" control (carried out by a third party)</li>
+</ul>
+</li>
+<li>Depending on the control's operating mode<ul>
+<li>Comparison of a situation with the applicable procedure, comparison of an operation or data with a referentiel, with a range of expected or plausible values, with a target (result, budget, etc.) with the same operation or data from a third party (confirmation)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Examples<ul>
+<li>Some examples of automated ("IT-driven") controls<ul>
+<li>Blocking control in a tool<ul>
+<li>Impossiblity to continue the process of customer credit origination until all fields of the KYC are completed</li>
+</ul>
+</li>
+<li>Restriction of loan approval<ul>
+<li>Up to the maximum allowed per delegation/limit</li>
+</ul>
+</li>
+<li>Systematic requirement in a workflow for approval by a dedicated party</li>
+<li>Automatic calculation of the effective annual interest rate</li>
+<li>Segregation of duties built into/configured in a system (i.e., staff approving the invoice cannot change the supplier's information on the GNI, etc.)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Chapter summary</p>
+<ul>
+<li>In this section, we have recapitulated the different types of L1Cs as well as their key principles :<ul>
+<li>Various types of first-level controls can be used to contain the risks involved (eg. IT-driven, committee, organizational and governance control sheets)</li>
+<li>These controls must be formalized in specialized tools (eg. GPS) or described sheets in myAPRC</li>
+<li>The controls must have specific characteristics as indicated in the L1Cs methodological guide : in particular, it is mandatory to provide the frequency, the sample, the scale of criticality of anomalies, the control rating scale</li>
+<li>It is imperative to correctly map each control needs in its blueprint and qualify all possible risks on all the control needs in the blueprint</li>
+<li>The stakeholders<ul>
+<li>The operational staff and the managers of the L1Cs teams are involved in the instantiation of the controls</li>
+<li>The experts of LOD1 and LOD2 are involved in updating the NCL, i.e., the control needs in the referentiel</li>
+<li>The L2C and LOD3 (periodic control) teams review and challenge the implementation of the controls that LOD1 has made locally</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="common-key-principles-for-the-execution-of-1st-level-controls">Common key principles for the execution of 1st level controls</h2>
+<ul>
+<li>
+<p>Guidelines</p>
+<ul>
+<li>All deployed level 1 controls must be executed (except in the case of "No Migration"). It is therefore essential to ensure that the controls are carried out on a permament basis through a precise work organization<ul>
+<li>Compliance with procedures<ul>
+<li>Compliance with the instructions of the control design, frequency, sampling, control points, type of evidence, etc.</li>
+<li>Precise formalization of the execution of the control and justification of the sample if necessary</li>
+</ul>
+</li>
+<li>Formalization of execution in the Group's tools<ul>
+<li>The execution of a control must be formalized in one of the Group tools</li>
+<li>The execution of L1Cs must be linked to the permanent control referentials (APRC...)</li>
+</ul>
+</li>
+<li>Auditability<ul>
+<li>The outcome of a control must be auditable within 5 years of its implementation, i.e., the supporting documents must be kept throughout this period</li>
+</ul>
+</li>
+<li>Reporting of anomalies and action plans<ul>
+<li>Scoring of anomalies in accordance with the explanations provided in the control procedure</li>
+<li>Reporting of anomalies in the permanent control tools</li>
+<li>Formalization of a mandatory action plan, in the L1C tools for high and very high criticality anomalies</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Compliance with procedures</p>
+<ul>
+<li>The quality of the control and the validity of the analysis of the results depend on the relevance of the sampling method. The creators of level 1 controls must ensure that the sampling requested complies with the following principles<ul>
+<li>Responsibility<ul>
+<li>The sampling instructions available in the controls within their scope are appropriate and proportionate to the volumes and risks covered by the control</li>
+</ul>
+</li>
+<li>Methods<ul>
+<li>Sample items are selected either in a discretionary (non-statistical) manner based on a particular risk factor (eg., high intrinsic risk level), or in a random (or statistical) manner using mathematical / statistical methods to determine the sample size</li>
+</ul>
+</li>
+<li>Freedom of choice<ul>
+<li>The performer of the control must exercise his freedom of choice : he can decide to carry out exhaustive reviews when the level of risk requires it (even if the control procedure allows control based on a sample). Indeed, because of his expertise and knowledge of his activity, the control performer is best able to categorize the "population" that is subject to the control, and thus to proportion the control means to the level of risk attached to this population</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Reporting of anomalies and action plans</p>
+<ul>
+<li>Let's continue with the reporting of anomalies and action plans. An anomaly must be described and qualified; any anomaly described must be corrected.<ul>
+<li>An anomaly is an error detected or a difference between an expected result and a result obtained during the execution of a control. It can be the result of:<ul>
+<li>A dysfunction with proven losses (a real loss has been noted)</li>
+<li>A dysfunction with proven impacts but without financial consequences (the risk has materialised but has not resulted in a financial loss)</li>
+<li>A dysfunction detected without (or before) materialisation of the risk (without proven impact)</li>
+</ul>
+</li>
+<li>In the cases, the incident reporting instructions of the operational incident tools will be followed, in compliance with the thresholds defined by the Group</li>
+<li>The objective of anomaly detection is to be able to make the necessary corrections to prevent recurrence and to ensure that action plans are drawn up</li>
+<li>It is essential to declare L1C anomalies (including those corrected before the control is finalized) and describe them in detail, so that their impact is clearly explained</li>
+<li>All this information allows the launch of action plans whose objective is the correction of anomalies and the improvement of processes. The criticality of anomalies must be defined in accordance with Group rules to allow for a uniform analysis of process dysfunctions throughout the Group</li>
+<li>As a reminder, the Group has adopted a four-level scale for rating level 1 control anomalies:<ul>
+<li>"Very high" : Risk for the Societe Generale Group</li>
+<li>"High" : Risk for a BU/SU</li>
+<li>"Moderate" : Risk for an entity or several departments</li>
+<li>"Low" : Risk for a department</li>
+</ul>
+</li>
+<li>High and very high criticality anomalies must be subject to an action plan and followed up by General Management</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Formalization of execution</p>
+<ul>
+<li>Next comes traceability, with the formalization of execution in the Group's tools<ul>
+<li>The execution of a control must be captured in the central systems (Group datalake) to indicate that the planned risk control framework is in place and functioning</li>
+<li>Furthermore, it must be possible to link this execution to a blueprint and therefore to the APRC referentiel</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Auditability</p>
+<ul>
+<li>Finally, we conclude out presentation of the main principles of control implementation with auditability<ul>
+<li>Formalization of the execution (operating procedure, results) is mandatory</li>
+<li>All of this information must be traceable, auditable and accessible to the Audit/Inspection, level 2 control teams, and DGLE/PIC, as well as to supervisory authorities</li>
+<li>These elements must be kept for a minimum of five years, unless otherwise specified<ul>
+<li>By complying with local regulations imposed by the regulator (eg., FATCA regulations require a minimum retention period of 6 years)</li>
+<li>If specific recommendations have been issued in this regard by the General Inspection and Audit Department</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Chapter summary</p>
+<ul>
+<li>In this section, we have discussed the general principles as well as the details of each approach : compliance with procedures, reporting of anomalies and action plans, formalization of execution and audutability<ul>
+<li>In respecting procedures, particular attention must be paid to sampling, which must therefore respect certain principles : responsibility, methods, freedom of choice</li>
+<li>There are two general approaches to sampling : discretionary and random</li>
+<li>The performer of the control retains his free will and can decide to carry out exhaustive reviews when the level of risk requires it, even if the control procedure authorizes the control based on a sample</li>
+<li>An anomaly is an error detected or a difference between an expected result and a result obtained during the performance of a control. As such, a L1Cs anomaly can correspond to dysfunctions with proven losses, dysfunctions with proven impacts, dysfunctions detected without materialization of the risk</li>
+<li>For all significant anomalies detected, it is essential to define and implement an actio plan to ensure that the dysfunction does not recur,these plans also contribute the continuous improvement of our processes</li>
+<li>Anomalies, and more particularly high and very high criticality anomalies, must be described in detail in order to clearly explain the impact and the stakes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="monitoring-permament-control">Monitoring permament control</h2>
+<ul>
+<li>
+<p>Principle of reporting</p>
+<ul>
+<li>As we saw in the introduction, the entire permanent control framework must be monitored by means of reports so that management can ensure that activities are carried out in accordance with the strategy and risk appetite defined by the Group. On this basis, management should be able to take remedial action if necessary. Lets look at their principles and how these reports are set up<ul>
+<li>The objective of permanent control reporting is to capture the results of controls at the finest level, by cross-referencing them with the elements of the non-financial risk management framework, in order to detect significant areas af risk and possible remedial or corrective actions, to summarize them and to inform management and the supervisory bodies</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Reporting methodology</p>
+<ul>
+<li>The reporting is done according to a specific methology which we will see in detail<ul>
+<li>Manager, staff<ul>
+<li>Analysis level 1<ul>
+<li>Performing level 1 control - Daily risk management : Control rating, creation of anomalies, of action plans<ul>
+<li>The level 1 controls that are correctly deplyed and carried out daily throughout the Group make it possible to protect the bank day-to-day and thus to detect and prevent risks</li>
+<li>The formalization of these controls allows their analysis at the following levels of analysis</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CORO, ORM, RCL1C<ul>
+<li>Analysis level 2<ul>
+<li>Daily analysis by the operational risk management teams using the KRI and business intelligence tools provided<ul>
+<li>The data relating to the results of these controls are stored in the datalake. This data can then be used daily by everyone to perform the necessary reports and analyses</li>
+<li>These analyses are carried out by the operational risk management teams who manage the framework daily</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BU/SU managers<ul>
+<li>Analysis level 3<ul>
+<li>Level 1 permanent control certification by the BU/SU managers to the General Management<ul>
+<li>The deployment of level 1 controls, the results of their execution, as well as the analyses made of them, are brought to the attention of the BU/SU management. With the support of the CORO, the BU/SU manager is informed of, analyses, and certifies the results of the execution of the L1Cs in his or her area of supervision. The certification of level 1 control results by management is a quaterly exercise</li>
+<li>A dashboard is then compiled and challenged every six months by the BU/SU manager at the BU/SU Internal Control Coordination Committee</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DGLE<ul>
+<li>Analysis level 4<ul>
+<li>Permanent control dashboard. Presentation of the status of the framework to the Group Internal Control Coordination Committee, General Management and the CACI<ul>
+<li>The elements of L1Cs certification are integrated into the Group's permament control dashboard which compares them with the other non-financial risk management frameworks : the RCSA, losses and incidents, the results of L2C and IGAD missions, etc., in order to detect the priority areas for improvement of the framework, as part of a continuous improvement process. This exercise is also carried out quaterly</li>
+<li>This dashboard is presented to General Management at the Group Internal Control Coordination Committee meeting, to enable monitoring of the framework and supervision of the Group's internal control. After review and validation, the dashboard is then presented to the Audit and Internal Control Committee</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>DGLE to CACI and ACPR<ul>
+<li>Analysis level 5<ul>
+<li>Report on Internal Control (RCI) to be reviewed by the GICCC, validated by the General Management, presented to the CACI and the Board of Directors, and communicated to the ACPR and the ECB<ul>
+<li>Finally, the Group produces an annual consolidated report on internal control, known as the RCI. This document presents a transversal analysis (by the experts of LOD1 and LOD2) of all types of risks by comparing the various elements of the framework : losses, incidents, controls, RCSA, etc. It also includes the main results of the missions carried out by LOD3</li>
+<li>This report is presented to the CACI (Audit and Internal Control Committee) after neing examined and validated by General Management during the GICCC. It is also sent to the Group's supervisory authorities (ACPR and ECB)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Each of the reporting stages described earlier makes possible to assess the internal control framework and to decide on actions to improve this framework to enhance risk management. The formalization of the results of level 1 controls is therefore a key step in the process of continuous improvement of the Group's permanent control framework and allows transparent information to be transmitted to all levels of management, including the General Management and the Board of Directors</li>
+</ul>
+</li>
+<li>
+<p>Chapter summary</p>
+<ul>
+<li>In this section, we have discussed the monitoring of permament control<ul>
+<li>The permanent control monitoring system enables Management to ensure that activities are carried out in accordance with the strategy and risk appetite. It enables it to decide on remedial actions and to exercise its supervision of internal control.</li>
+<li>Permanent control reporting makes it possible to capture control results at the finest level, by cross-referencing them with the elements of the non-financial risk management system, in order to detect significant areas of risk and the actions to be taken to effectively contain these risks at the accepted level</li>
+<li>The formalization and certification of the results of the execution of level 1 controls is one of the key stages in the process of continuous improvement of the Group's permanent control system,; it makes possible to transmit transparent information to all levels of management and to the supervisory authorities</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="continuous-improvement-if-the-permament-control-framework">Continuous improvement if the permament control framework</h2>
+<ul>
+<li>
+<p>Continuous improvement loop and articulation with losses/incidents and RCSA</p>
+<ul>
+<li>The permament control framework operates in an iterative way. Each component of the framework is fed by the other components, in a continuous improvement logic, so that the framework is agile and adaptable to the evolving risk profile faced by the Group<ul>
+<li>The level 1 control framework is embedded in the non-financial risk management system and contributes to containing risks at the level accepted in the Group's risk appetite. The dynamics of continuous improvement therefore comes from you because permanent control is everyone's responsibility</li>
+<li>Anomalies can be detected at all levels, operational, managers, level 2 controller, LOD2 expert, periodic controller (IGAD) or supervisory authority</li>
+<li>All anomalies detected (a process failure, a significant loss, etc.) must be the subject of an action plan to ensure that the dysfunction does not repeat itself. At least for significant anomalies, a follow-up of the action plan is compulsory in a dedicated permament control tool</li>
+<li>If deemed necessary, the action plan defined may be extended to other entites to ensure that the anomaly does not occur elsewhere in the Group. The permament control framework is deployed throughout the Group (subsidiaries and branches as well as the various organizational structures existing within the scope, such as joint ventures)</li>
+<li>If significant anomalies are detected, the stakeholders in the permament control framework must react. Improvement actions to enhance the framework can be taken at several levels:<ul>
+<li>At the General Management level, which will identify actions based on the visibility given to the framework by the permanent control dashboard to ensure compliance with the risk appetite defined by the Group</li>
+<li>AT BU/SU management level, the manager assesses his or her level of residual risk based on "Risk and Control Self Assessment" (RCSA) or Compass, the results of L1Cs, incidents and losses, audit reports and the existing L1C framework</li>
+<li>At your level : through the implementation of procedures, recommendations issued by your management, level 2 control, periodic control (IGAD), supervisory authorities</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Chapter summary</p>
+<ul>
+<li>In this section, we have discussed the continuous improvement loop:<ul>
+<li>The permanent control framework must be deployed throughout the Societe Generale Group, i.e., all consolidated subsidiaries and branches, as well as the various organizational structures existing within this scope, such as joint ventures</li>
+<li>The permanent control framework operates in an iterative way, as part of a continuous improvement process</li>
+<li>All anomalies detected (a process failure, a significant loss, etc.) must be the subject of an action plan to ensure that the dysfunction does not occur</li>
+<li>The residual risk remaining after the implementation of the permanent control framework must be compliant with the guidelines laid down by the Group's risk appetite</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>

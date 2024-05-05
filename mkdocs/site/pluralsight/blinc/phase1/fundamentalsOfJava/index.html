@@ -1,0 +1,4271 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../pluralsight/">
+      
+      
+        <link rel="next" href="../generics/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>Fundamentals of Java - Viper Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fundamentals-of-java" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Viper Docs" class="md-header__button md-logo" aria-label="Viper Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Viper Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fundamentals of Java
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Viper Docs" class="md-nav__button md-logo" aria-label="Viper Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Viper Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Free Code Camp
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Free Code Camp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../freeCodeCamp/freeCodeCamp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Free Code Camp Contents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../freeCodeCamp/youtube/sqlDatabaseCourse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sql Database Course
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Nptel
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Nptel
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nptel/nptel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Nptel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System Analysis and Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            System Analysis and Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nptel/systemAnalysisAndDesign/module1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Information for Management
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Office
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Office
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/office/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Office contents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Platform Professional Services
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Platform Professional Services
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_1" id="__nav_4_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Beginner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beginner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/beginner/goToCloudPlatform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Go to Cloud Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/beginner/gts2020CloudStrategy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GTS 2020 Cloud Strategy
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/beginner/processesAndOperationsInSG/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processes and Operations in SG Cloud Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Intermediate
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Intermediate
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_1" id="__nav_4_2_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Platform Delivery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Platform Delivery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/deepDiveIntoServiceCatalog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deep Dive into Service Catalog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/doItNowService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DoItNow Services
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_2" id="__nav_4_2_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Cloud Platform Use
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Platform Use
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/cloudNativeArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Native ArchitectureCloud Native Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/introductionToCloudArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Cloud Architecture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2_3" id="__nav_4_2_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Core Services Discovery
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Core Services Discovery
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/blockStorageService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Block Storage Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/certificateService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cerficate Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudOrchestrationService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Orchestration Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudPlatformComputeService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Platform Compute Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/fileStorageService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    File Storage Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IAMService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IAM Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IPAM_DNSService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    IPAM-DNS Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSFactoryService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OS Factory Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSConfigurationService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OS Configuration Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/objectStorageService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Object Storage Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/securityGroupService/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Security Group Service
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_3" id="__nav_4_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Advanced
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_3_1" id="__nav_4_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Persistence in Cloud Platform
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_4_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Data Persistence in Cloud Platform
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/cloudPlatformProfessionalServices/advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cloud Native Architecture Patterns
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    My Learning
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            My Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/bascisOfLevel1PermanentControl/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics of Level 1 Permanent Control
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/sustainableITAwareness/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sustainable IT Awareness
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/fightAgainstCorruption/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protection Against Corruption
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/protectionOfPersonalData/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Protection of Personal Data
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/preventionOfSexualHarassment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prevention of Sexual Harassment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../office/myLearning/csrHistoryStandardsOpportunities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CSR History Standards and Opportunities
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PluralSight
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            PluralSight
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pluralsight/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PluralSight Contents
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Blinc
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            Blinc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Phase 1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Phase 1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Fundamentals of Java
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Fundamentals of Java
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-and-setting-up-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction and setting up the environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-simple-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Simple App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-data-types-and-math-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables, Data types and Math Operator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditional-logic-looping-and-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conditional Logic, Looping and Arrays
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representing-complex-types-with-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representing Complex Types with Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-initializers-and-constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Initializers and Constructors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-closer-look-at-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Closer Look at Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Inheritance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-about-data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      More About Data Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions-and-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exceptions and Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-abstract-relationships-with-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating abstract relationships with Interfaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stitic-members-nested-types-and-anonymous-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stitic members, nested types, and anonymous classes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generics/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Generics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jdbcjavaPlatform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    JDBC Java Platform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multithreading/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Multi Threading
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shellScripting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell Scripting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tddTheBigPicture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TDD The Big Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Phase 2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Phase 2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase2/javaWebFundamentals/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Java Wev Fundamentals
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../phase2/springTheBigPicture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Spring The Big Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Paths
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            Paths
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_1" id="__nav_5_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Domain Driven Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Domain Driven Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_1_1" id="__nav_5_3_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Beginner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beginner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths/bdd/beginner/cleanArchitecture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Clean Architecture - Patterns, Practices and Principles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_2" id="__nav_5_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java Language Fundamentals
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Java Language Fundamentals
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_2_1" id="__nav_5_3_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Beginner
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Beginner
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Modern Java, the Big Picture
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3_3" id="__nav_5_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PMI-ACP Agile exam
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            PMI-ACP Agile exam
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../paths/pmiAcpExam/introductionToAgileProjectMgt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Agile Project Management and the PMI-ACP Exam
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Solo Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            Solo Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Java
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Java
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../soloCourses/java/streamsLambdaExpressions/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    From Collections to Streams using Lambda Expressions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Self Development Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Self Development Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../booksNovels/selfDevelopmentBooks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Self Development Books list
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../booksNovels/atomicHabits/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Atomic Habits
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction-and-setting-up-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction and setting up the environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-simple-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a Simple App
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-data-types-and-math-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables, Data types and Math Operator
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditional-logic-looping-and-arrays" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conditional Logic, Looping and Arrays
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#representing-complex-types-with-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Representing Complex Types with Classes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-initializers-and-constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Initializers and Constructors
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-closer-look-at-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      A Closer Look at Parameters
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#class-inheritance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Class Inheritance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#more-about-data-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      More About Data Types
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exceptions-and-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exceptions and Error Handling
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#working-with-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Working with Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-abstract-relationships-with-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating abstract relationships with Interfaces
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stitic-members-nested-types-and-anonymous-classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Stitic members, nested types, and anonymous classes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="fundamentals-of-java">Fundamentals of Java</h1>
+<h2 id="introduction-and-setting-up-the-environment">Introduction and setting up the environment</h2>
+<ul>
+<li>
+<p>Creating and running Java Apps</p>
+<ul>
+<li>Java file<ul>
+<li>Java Developement kit tools<ul>
+<li>Java App</li>
+<li>Java Runtime Environment</li>
+<li>Host Environment</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>Java is a language and a runtime environment<ul>
+<li>Specific environment features may vary (Java SE/ME/EE, JavaFX, Android)</li>
+<li>Language remains pretty consistent</li>
+</ul>
+</li>
+<li>End-users require the Java Runtime Environment(JRE)</li>
+<li>Developers require the Java Development Kit(JDK)</li>
+<li>Many Integrated Developement Environemts(IDE) are available<ul>
+<li>Eclipse</li>
+<li>IntelliJ</li>
+<li>Netbeans</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="creating-a-simple-app">Creating a Simple App</h2>
+<ul>
+<li>Summary<ul>
+<li>Execute programs from tnhe command line with the "java" command<ul>
+<li>Remember to use the full class name including the package name</li>
+<li>On Windows must include the JRE bin folder in the Path environment variable</li>
+</ul>
+</li>
+<li>Programs are made up of statements<ul>
+<li>Statements end with a semicolon</li>
+<li>Parts separated by zero or more whitespaces</li>
+</ul>
+</li>
+<li>Use comments to add notes and hide statements from the compiler</li>
+<li>Packages provide organization<ul>
+<li>Assure uniqueness</li>
+<li>Modt IDEs tie source code file structure to package name</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="variables-data-types-and-math-operator">Variables, Data types and Math Operator</h2>
+<ul>
+<li>
+<p>Variables</p>
+<ul>
+<li>Named data storage</li>
+<li>Strongly typed</li>
+<li>Value can be modified</li>
+</ul>
+</li>
+<li>
+<p>Naming Variables</p>
+<ul>
+<li>Variable na ing is based on a combination of rules and conventions<ul>
+<li>Rules allow the use of letters, numbers, $ and _<ul>
+<li>By convention only letters and numbers are used</li>
+</ul>
+</li>
+<li>Rules require that first character is not a numbers<ul>
+<li>By convention it is always a letter</li>
+</ul>
+</li>
+<li>By convention follow the style often referred to as "Camel Case"<ul>
+<li>First letter is lower case</li>
+<li>Start of each word after the first is upper case</li>
+<li>All other letters are lower case</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Primitive data types</p>
+<ul>
+<li>Built into the language</li>
+<li>Foundation of all other types</li>
+<li>Four categories of primitive types<ul>
+<li>Integer</li>
+<li>Floating point</li>
+<li>Character</li>
+<li>Boolean</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Integer types</p>
+<ul>
+<li>byte (8 bits)</li>
+<li>short (16 bits)</li>
+<li>int (32 bits)</li>
+<li>long (64 bits)</li>
+</ul>
+</li>
+<li>
+<p>Floating point types</p>
+<ul>
+<li>Implementation of IEEE 754 floating point standard</li>
+<li>Stores values containing a fractional portion</li>
+<li>Supports positive, negative and zero values</li>
+<li>Types<ul>
+<li>Float (32 bits)</li>
+<li>Double (64 bits)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Character and Boolean Types</p>
+<ul>
+<li>The char type stores a single Unicode character<ul>
+<li>Literal values placed between single quotes</li>
+<li>For Unicode code points, use \u followed by 4-digit hex value</li>
+</ul>
+</li>
+<li>The boolean type stores true/false values<ul>
+<li>Literal values are true and false</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Arithmetic operators</p>
+<ul>
+<li>Basic operators<ul>
+<li>Add (+)</li>
+<li>Substract (-)</li>
+<li>Multiply (*)</li>
+<li>Divide (/)</li>
+<li>Modulus (%)</li>
+</ul>
+</li>
+<li>Prefix/postfix operators<ul>
+<li>++ increments value by 1</li>
+<li>-- decrements value by 1</li>
+<li>As prefix applies operation before returning value</li>
+<li>As postfix applies operation after returning value</li>
+</ul>
+</li>
+<li>Compound assignment operators<ul>
+<li>Combines an operationand assignment<ul>
+<li>Applies result of right side to left side</li>
+<li>Stores that result in variable on left side</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Operator precedence</p>
+<ul>
+<li>Operators are evaluated in a well-defined order<ul>
+<li>Postfix</li>
+<li>Prefix</li>
+<li>Multiplicative</li>
+<li>Additive</li>
+</ul>
+</li>
+<li>Operators of equal precedence are evaluated from left to right</li>
+<li>Can override precedence with parenthesis<ul>
+<li>Nested parenthesis evaluated from the inside out</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Type conversion</p>
+<ul>
+<li>Implicit type conversion<ul>
+<li>Conversions performed automatically by the compiler</li>
+<li>Widening conversions are automatic</li>
+<li>Mixed integer sizes<ul>
+<li>Uses largest integer in equation</li>
+</ul>
+</li>
+<li>Mixed floating point sizes<ul>
+<li>Uses double</li>
+</ul>
+</li>
+<li>Mixed integer and floating point<ul>
+<li>Uses largest floating point in equation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Explicit type conversion<ul>
+<li>Conversions performed explicitly in code with cast operator</li>
+<li>Can perform widening and narrowing</li>
+<li>Floating point to integer drops fraction</li>
+<li>Use caution with narrowing conversions</li>
+<li>Integer to floating point can lose precision</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>Variables are stringly typed in Java</li>
+<li>Primitive types<ul>
+<li>Integer types, floating point types, char type, boolean type</li>
+</ul>
+</li>
+<li>Math operators<ul>
+<li>Basic operators, postfix/prefix operators, compound assignment operators</li>
+</ul>
+</li>
+<li>Math operators follow a well-defined order of precedence</li>
+<li>Type conversions<ul>
+<li>Compiler can automatically apply widening type conversions</li>
+<li>Use type casting to explicitly perform type conversions</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="conditional-logic-looping-and-arrays">Conditional Logic, Looping and Arrays</h2>
+<ul>
+<li>
+<p>Adding conditional logic</p>
+<ul>
+<li>Relational operators</li>
+<li>Conditional assignments</li>
+<li>The if statement</li>
+<li>Logical operators</li>
+</ul>
+</li>
+<li>
+<p>Relational operators</p>
+<ul>
+<li>Greater than (&gt;)</li>
+<li>Greater than or equal to (&gt;=)</li>
+<li>Less than (&lt;)</li>
+<li>Less than or equal to (&lt;=)</li>
+<li>Equal to (==)</li>
+<li>Not equal to (!=)</li>
+</ul>
+</li>
+<li>
+<p>Conditional assignment</p>
+<ul>
+<li>Assign a value to a variable based on the result of a condition<ul>
+<li>result = condition ? true-value : false-value ;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>If-else Statement</p>
+<ul>
+<li>An if statement conditionally executes a statement</li>
+</ul>
+</li>
+</ul>
+<pre><code>            if (condition)
+                true-statement;
+            else
+                false-statement;
+</code></pre>
+<pre><code>* The optional else clause executes a statement when the if condition is false
+* If-else statements chained together are evaluated in order until one is true
+</code></pre>
+<pre><code>            if (condition-1)
+                true-statement;
+            else if (condition-2)
+                true-statement;
+                .
+                .
+                .
+            else if (condition-N)
+                true-statement;
+            else
+                false-statement;
+</code></pre>
+<ul>
+<li>
+<p>Block statement</p>
+<ul>
+<li>A block statement groups statements into a compound statement
+        {
+            statement-1;
+            statement-2;
+            .
+            .
+            .
+            statement-N;
+        }</li>
+</ul>
+</li>
+<li>
+<p>Block statements and Variable Scope</p>
+<ul>
+<li>A variable declared within a block is not visible outside of the block<ul>
+<li>A variable's range of visibility is known as the variable's scope</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Logical operators</p>
+<ul>
+<li>And (&amp;)</li>
+<li>Or (|)</li>
+<li>Exclusive or (XOR) (^)</li>
+<li>Negation (!)</li>
+</ul>
+</li>
+<li>
+<p>Conditional logical operators
+        * Conditional and (&amp;&amp;)
+        * Conditional or (||)</p>
+<ul>
+<li>Resolve following conceptually similar rules as non-conditional and/or</li>
+<li>Only execute the right-side if needed to determine the result<ul>
+<li>&amp;&amp; only executes right-side if left-side is true</li>
+<li>|| only executes right-side if left-side is false</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>While Loop</p>
+<ul>
+<li>Repeatedly executes a statement as long as the condition is true<ul>
+<li>Condition checked at loop Start</li>
+<li>Statement may never execute
+        while (condition)
+            statement;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Do-while Loop</p>
+<ul>
+<li>Repeatedly executes a statement as long as the condition is true<ul>
+<li>Condition checked at loop end</li>
+<li>Statement always executes at least once
+        do
+            statement;
+        while (condition);</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>For Loop</p>
+<ul>
+<li>Repeatedly executes a statement as long as the condition is true<ul>
+<li>Condition checked at loop start</li>
+<li>Provides simplified notation for loop control values
+        for(initialize; condition; update)
+            statement;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Arrays</p>
+<ul>
+<li>Provides an ordered collection of elements<ul>
+<li>Each element accessed via an index</li>
+<li>Indexes range from 0 to number-of-elemets minus 1</li>
+<li>Number of elements can be found via array's length value</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>For-each Loop</p>
+<ul>
+<li>Executes a statement once for each member in an array<ul>
+<li>Handles getting collection length</li>
+<li>Handles accessing each value
+        for (loop-variable-declaration : array)
+            statement ;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Switch</p>
+<ul>
+<li>Transfers control to a statement based on a value<ul>
+<li>Simplifies testing against multiple possible matches</li>
+<li>Only primitive types supported are char and integers</li>
+<li>A match can execute more than one statement</li>
+<li>Use break to avoid "falling through"</li>
+<li>Can optionally include default to handle any unmatches values</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>                switch (test-value) {
+                    case value-1:
+                        statements
+                    case value-2:
+                        statements
+                        .
+                        .
+                        .
+                    case value-n:
+                        statements
+                }
+</code></pre>
+<ul>
+<li>Summary<ul>
+<li>Use the if-else statement to provide conditional logic<ul>
+<li>If-else statements can be chained together</li>
+</ul>
+</li>
+<li>Block statements use brackets to group statements<ul>
+<li>Variables declared within a block are not visible outside of the block</li>
+</ul>
+</li>
+<li>Both while and do-while loops execute as long as a condition is true<ul>
+<li>The do-while loop body always executes at least once</li>
+</ul>
+</li>
+<li>The for loop provides simplified notation for loop initialization and control</li>
+<li>For-each statement handles details of executing once for each array member</li>
+<li>Switch statement simplifies notation of testing against multiple matches</li>
+</ul>
+</li>
+</ul>
+<h2 id="representing-complex-types-with-classes">Representing Complex Types with Classes</h2>
+<ul>
+<li>
+<p>Classes in Java</p>
+<ul>
+<li>Java is an object-orientated language</li>
+<li>Objects encapsulates data, operations, and usage semantics<ul>
+<li>Allows storage and manipulation details to be hidden</li>
+<li>Separates "what" is to be done from "how" it is done</li>
+</ul>
+</li>
+<li>Classes provide a structure for describing and creating Objects</li>
+<li>A class is a template for creating an object<ul>
+<li>Declared with the class keyword followed by the class name</li>
+<li>Java source file name nornally has same name as the class</li>
+<li>Body of the class is contained within brackets</li>
+</ul>
+</li>
+<li>A class is made up of both state and executable code<ul>
+<li>Fields<ul>
+<li>Store object state</li>
+</ul>
+</li>
+<li>Methods<ul>
+<li>Executable code that manipulates state and performs operations</li>
+</ul>
+</li>
+<li>Constructors<ul>
+<li>Executable code used during object creation to set the initial state</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Using Classes</p>
+<ul>
+<li>Use the new keyword to create a class instance (a.k.a an object)<ul>
+<li>Allocates the memory described by the class</li>
+<li>Returns a reference to the allocated memory</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Encapsulation and Access Modifiers</p>
+<ul>
+<li>The internal representation of an object is generally hidden</li>
+<li>This concept is known as encapsulation</li>
+<li>Java uses access modifiers to achieve encapsulation</li>
+<li>Basic access modifiers<ul>
+<li>Public</li>
+<li>Private</li>
+<li>Protected</li>
+<li>Default</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Naming classes</p>
+<ul>
+<li>Class names follow the same rules as variable names</li>
+<li>Class name conventions are similar to variables with some diferrences<ul>
+<li>Use only letters and numbers</li>
+<li>First character is always a letter</li>
+<li>Follow the style often referred to as "Pascal Case"<ul>
+<li>Start of each word, including the first, is upper case</li>
+<li>All other letters are lower case</li>
+</ul>
+</li>
+<li>Use simple, descriptive nouns</li>
+<li>Avoid abbreviations unless abbreviation's use is more common than full name</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Method basics</p>
+<ul>
+<li>Executable code that manipulates state and performs operations<ul>
+<li>Name    <ul>
+<li>Same rules and conventions as variables</li>
+<li>Should be a verb or action</li>
+</ul>
+</li>
+<li>Return type<ul>
+<li>Use void when no value returned</li>
+</ul>
+</li>
+<li>Types parameter list<ul>
+<li>Can be empty</li>
+</ul>
+</li>
+<li>Body contained with brackets
+        return-type name (typwd-parameter-list){
+            statements
+        }</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Exiting from a Method</p>
+<ul>
+<li>A method exits for one of the three reasons<ul>
+<li>The end of the method is reached</li>
+<li>A return statement is encountered</li>
+<li>An error occuers</li>
+</ul>
+</li>
+<li>Unless there's an error, control returns to the method caller</li>
+</ul>
+</li>
+<li>
+<p>Methods return values</p>
+<ul>
+<li>A method returns a single value<ul>
+<li>A primitive value</li>
+<li>A reference to an object</li>
+<li>A reference to an array<ul>
+<li>Arrays are objects</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Special references : this and null</p>
+<ul>
+<li>Java provides special references with predefined meanings<ul>
+<li>this is an implicit reference to the current object<ul>
+<li>Useful for reducing ambiguity</li>
+<li>Allows an object to pass itself as a parameter</li>
+</ul>
+</li>
+<li>null is a reference literal<ul>
+<li>Represents an uncreated object</li>
+<li>Can be assigned to any reference variable</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Field encapsulation</p>
+<ul>
+<li>In most cases, a class fields should not be directly accessible outside of the class<ul>
+<li>Helps to hide implementation details</li>
+<li>Use methods to control field access</li>
+</ul>
+</li>
+<li>Accessors and Mutators<ul>
+<li>Use the accessor/mutator pattern to control field access<ul>
+<li>Accessor retrieves field value<ul>
+<li>Also called getter</li>
+<li>Method name : getFieldName</li>
+</ul>
+</li>
+<li>Mutator modifies field value<ul>
+<li>Also called setter</li>
+<li>Method name : setFieldName</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>A class is a template for creating an object<ul>
+<li>Declared wuth class keyword</li>
+<li>Class instances (a.k.a objects) allocated with new keyword</li>
+</ul>
+</li>
+<li>Classes are reference types</li>
+<li>Use access modifiers to control encapsulation</li>
+<li>Methods manipulates state and performs operations<ul>
+<li>Use return keyword to exit and/or return a value</li>
+</ul>
+</li>
+<li>Fields store object state<ul>
+<li>Interaction normally controlled through accessors(getters) and mutators(setters)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="class-initializers-and-constructors">Class Initializers and Constructors</h2>
+<ul>
+<li>
+<p>Establishing Initial State</p>
+<ul>
+<li>When an object is created, it is expected to be in a useful state<ul>
+<li>Often the default state established by Java is not enough</li>
+<li>The object may need to set values or execute code</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Mechanisms for Establishing Initial State</p>
+<ul>
+<li>Java provides 3 mechanisms for establishing initial state<ul>
+<li>Field initializers</li>
+<li>Constructors</li>
+<li>Initialization blocks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Field Initial State</p>
+<ul>
+<li>A field's initial state is established as part of object construction<ul>
+<li>Fields receive a "zero" value by default</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Field initializers</p>
+<ul>
+<li>Allow us to specify a field's initial value as part of its declaration<ul>
+<li>Can be a simple assignment</li>
+<li>Can be an equation</li>
+<li>Can reference other fields</li>
+<li>Can be a method call</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Constructors</p>
+<ul>
+<li>Executable code used during object creation to set the initial state<ul>
+<li>Have no return type</li>
+<li>Every class has at least one constructor<ul>
+<li>If no explicit constructors, Java provides one</li>
+</ul>
+</li>
+<li>A class can have multiple constructors<ul>
+<li>Each with a different parameter list</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Chaining constructors</p>
+<ul>
+<li>One constructor can call another<ul>
+<li>Use the this keyword followed by parameter list</li>
+<li>Must be the first line</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Constructor visibility</p>
+<ul>
+<li>Use access modifiers to control constructor visibility<ul>
+<li>Limits what code can perform specific creations</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Initialization blocks</p>
+<ul>
+<li>Initilization blocks shared across all constructors<ul>
+<li>Executed as if the code were placed at the start of each constructor</li>
+<li>Enclose statements in brackets outside of any method or constructor</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Initialization and Construction Order</p>
+<ul>
+<li>Field Initilization * Initilization Block * Constructor</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>Objects should be created in some useful state</li>
+<li>Field initializers provide an initial value as part of the declaration</li>
+<li>Every class has at least one constructor<ul>
+<li>If no explicit constructor, Java provides one with no arguments</li>
+<li>You can provide multiple constructors with different argument lists</li>
+</ul>
+</li>
+<li>One constructor can call another<ul>
+<li>Call must be first line</li>
+</ul>
+</li>
+<li>Initilization blocks share code across constructors</li>
+<li>Keep the initialization and construction order in mind</li>
+</ul>
+</li>
+</ul>
+<h2 id="a-closer-look-at-parameters">A Closer Look at Parameters</h2>
+<ul>
+<li>
+<p>Parameter Immutability</p>
+<ul>
+<li>Parameters are passed by making a copy of the value<ul>
+<li>Known as passing "by-value"</li>
+</ul>
+</li>
+<li>Changes made to passed value are not visible outside of method</li>
+<li>Changes made to members of passed class instances are visible outside of method</li>
+</ul>
+</li>
+<li>
+<p>Overloading</p>
+<ul>
+<li>A class may have multiple versions of its constructor or methods<ul>
+<li>Known as "overloading"</li>
+</ul>
+</li>
+<li>Each constructor and method must have a unique signature<ul>
+<li>Signature is made up of 3 parts<ul>
+<li>Affected by number of parameters</li>
+<li>Affected by type of each parameter</li>
+<li>Affected by name</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Variable Number of Parameters</p>
+<ul>
+<li>A method can be declared to accept a varying number of parameter values<ul>
+<li>Place an ellipse after parameter type</li>
+<li>Can only be the last parameter</li>
+<li>Method receives values as an array</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>Parameters are immutable<ul>
+<li>Changes made to passed value are not visible outside of method</li>
+<li>Changes made to members os passed class instances are visible outside of method</li>
+</ul>
+</li>
+<li>A class may have multiple versions of its constructor or methods<ul>
+<li>Each must have a unique signature</li>
+<li>Sugnature includes name, number of parameters, type of each parameter</li>
+</ul>
+</li>
+<li>A method can be declared to accept varying number of parameter values<ul>
+<li>Values received as an array</li>
+<li>Must be last parameter</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="class-inheritance">Class Inheritance</h2>
+<ul>
+<li>
+<p>Class Inheritance</p>
+<ul>
+<li>A class can be declared to inherit from another class<ul>
+<li>Use the "extends" keyword</li>
+</ul>
+</li>
+<li>Derived class has the characteristics of basic class<ul>
+<li>Can add specialization<ul>
+<li>Can be assigned to base class types references</li>
+<li>Fields hide base class fields with same name</li>
+<li>Methods can override base class methods with same signature</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Object class</p>
+<ul>
+<li>The object class is the rootof the Java class hierarchy<ul>
+<li>Every class has the characteristics of the Object class</li>
+</ul>
+</li>
+<li>Useful for declaring variables, fields and parameters that can reference any class or array instance</li>
+<li>Defines a number of methods that are inherited by al objects</li>
+<li>Every class inherits directly or indeirectly from the Object class</li>
+</ul>
+</li>
+<li>
+<p>Object class methods</p>
+<ul>
+<li>clone<ul>
+<li>Create a new object instance that duplicates the current instance</li>
+</ul>
+</li>
+<li>hashCode<ul>
+<li>Get a hash code for the current instance</li>
+</ul>
+</li>
+<li>getClass<ul>
+<li>Return type information for the current instance</li>
+</ul>
+</li>
+<li>finalize<ul>
+<li>Handle special resource cleanup scenarios</li>
+</ul>
+</li>
+<li>toString<ul>
+<li>Return string of characters representing the current instance</li>
+</ul>
+</li>
+<li>equals<ul>
+<li>Compare another object to the current instancec for equality</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Special reference : super</p>
+<ul>
+<li>Similar to this, super is an implicit reference to the current object<ul>
+<li>super treats the object as if it is an instance of its base class</li>
+<li>Useful for accessing base class members that have been overridden</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Control inheritance and overriding</p>
+<ul>
+<li>By default all classes can be extended and derived classes have the option to use or override inherited methods<ul>
+<li>A class can change these defaults<ul>
+<li>Use final to prevent inheriting and/or overriding</li>
+<li>Use abstract to require inheriting and/or overriding</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Inheritance and Constructors</p>
+<ul>
+<li>Constructors are not inherited<ul>
+<li>A base class constructor must always be called<ul>
+<li>By default, base class' no-argument constructor is called</li>
+<li>Can explicitly call a base class constructor using super followed by parameter list<ul>
+<li>Must be first line of constructor</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>Inheritance allows a new class to be defined with the characteristics of another<ul>
+<li>Use the extend keyword</li>
+</ul>
+</li>
+<li>Derived class can override base class methods<ul>
+<li>Optionally use @Override annotation</li>
+</ul>
+</li>
+<li>All classes derive from Object class either directly or indirectly</li>
+<li>By default, object references are only equal when referencing the same instance<ul>
+<li>Can override Object.equals to provide new behavior</li>
+</ul>
+</li>
+<li>super accesses current object as if instance of base class</li>
+<li>final and abstract provide control over class inheritance and method overriding</li>
+<li>Constructors are not inherited</li>
+</ul>
+</li>
+</ul>
+<h2 id="more-about-data-types">More About Data Types</h2>
+<ul>
+<li>
+<p>String class</p>
+<ul>
+<li>The string class stores a sequence of Unicode characters<ul>
+<li>Stored using UTF-16 encoding<ul>
+<li>Literals are enclosed in double quotes (" ")</li>
+<li>Values can be concatenated using + and +=</li>
+<li>String objects are immutable</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>String class methods<ul>
+<li>Length <ul>
+<li>length</li>
+</ul>
+</li>
+<li>String for non-string<ul>
+<li>valueof</li>
+</ul>
+</li>
+<li>Create new strings from existing<ul>
+<li>concat</li>
+<li>replace</li>
+<li>toLowerCase</li>
+<li>toUpperCase</li>
+<li>trim</li>
+<li>split</li>
+</ul>
+</li>
+<li>Formatting<ul>
+<li>format</li>
+</ul>
+</li>
+<li>Extract substring<ul>
+<li>chatAt</li>
+<li>substring</li>
+</ul>
+</li>
+<li>Test substring<ul>
+<li>contains</li>
+<li>endsWith</li>
+<li>startWith</li>
+<li>indexOf</li>
+<li>lastIndexOf</li>
+</ul>
+</li>
+<li>Comparison<ul>
+<li>compareTo</li>
+<li>compareToIgnoreCase</li>
+<li>isEmpty</li>
+<li>equals</li>
+<li>equalsIgnoreCase</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Converting non-string types to strings</p>
+<ul>
+<li>We often need to convert non-string types into strings<ul>
+<li>String.valueOf provides overrides to handle most types</li>
+<li>Conversions often happen implicitly</li>
+<li>Class conversions controlled by the class' toString method</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>StringBuilder</p>
+<ul>
+<li>StringBuilder provides mutable string buffer<ul>
+<li>For best performance pre-size buffer<ul>
+<li>Will automatically grow if needed</li>
+</ul>
+</li>
+<li>Most common methods<ul>
+<li>append</li>
+<li>insert</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Classes vs Primitives</p>
+<ul>
+<li>Classes provide convenience<ul>
+<li>Common interaction through Object class</li>
+<li>Fields and methods specific to the type</li>
+<li>Incurs an overhead cost</li>
+</ul>
+</li>
+<li>Primitives provide efficiency<ul>
+<li>Cannot be treated as Object</li>
+<li>Cannot expose fields or methods</li>
+<li>Lightweight</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Primitive wrapper classes</p>
+<ul>
+<li>Capabilities and overhead of classes</li>
+<li>Hold primitive values</li>
+<li>All wrapper classes are immutable</li>
+</ul>
+</li>
+<li>
+<p>Primitive wrapper class hierarchy</p>
+<ul>
+<li>Object<ul>
+<li>Boolean</li>
+<li>Number<ul>
+<li>Byte</li>
+<li>Short</li>
+<li>Integer</li>
+<li>Long</li>
+<li>Float</li>
+<li>Double</li>
+</ul>
+</li>
+<li>Character</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Wrapper class and primitive conversion</p>
+<ul>
+<li>Java provides a number of ways to handle conversions<ul>
+<li>Common conversions handled automatically</li>
+</ul>
+</li>
+<li>Wrapper classes provide methods for explicit conversions<ul>
+<li>Primitive to wrapper (Boxing)</li>
+<li>Wrapper to primitive (Unboxing)</li>
+<li>String to primitive (Parse)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Wrapper class members</p>
+<ul>
+<li>Byte, Short, Integer, Long<ul>
+<li>MIN_VALUE</li>
+<li>MAX_VALUE</li>
+<li>bitCount</li>
+<li>toBinaryString</li>
+</ul>
+</li>
+<li>Float, Double<ul>
+<li>MIN_VALUE</li>
+<li>MAX_VALUE</li>
+<li>isInfinite</li>
+<li>isNaN</li>
+</ul>
+</li>
+<li>Character<ul>
+<li>MIN_VALUE</li>
+<li>MAX_VALUE</li>
+<li>isDigit</li>
+<li>isLetter</li>
+</ul>
+</li>
+<li>Boolean<ul>
+<li>TRUE</li>
+<li>FALSE</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Wrapper class equality</p>
+<ul>
+<li>Boxing conversions that always return the same wrapper class instance</li>
+</ul>
+</li>
+<li>
+<p>Final fields</p>
+<ul>
+<li>Marking a field as final prevents it from being changed once assigned<ul>
+<li>A simple final field must be set during creation of an object instance<ul>
+<li>Can be set with field initializer, initialization block, or constructor</li>
+</ul>
+</li>
+<li>Adding the static modifier makes a final field a named constant<ul>
+<li>Cannot be set by an object instance</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Enumeration types</p>
+<ul>
+<li>Enumeration types useful for defining a type with a finite list of valid values<ul>
+<li>Declare with enum keyword</li>
+<li>Provide a comma-separated value list</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>String class stores an immutable sequence of Unicode characters<ul>
+<li>Implement toString method to provide conversion to a string</li>
+</ul>
+</li>
+<li>StringBuilder class provides an efficient way to manipulate string values</li>
+<li>Primitive wrapper classes bring class capabilities to primitive values<ul>
+<li>Wrapper classes much less efficient than primitive types</li>
+</ul>
+</li>
+<li>Final fields prevent a value from being changed once assigned<ul>
+<li>Simple final fields must be set during object instance creation</li>
+<li>Static final fields act as named constants</li>
+</ul>
+</li>
+<li>Enumeration types useful for defining a type with a finite list of values</li>
+</ul>
+</li>
+</ul>
+<h2 id="exceptions-and-error-handling">Exceptions and Error Handling</h2>
+<ul>
+<li>
+<p>Error handling with Exceptions</p>
+<ul>
+<li>Error handling needs to be implicit in application development<ul>
+<li>The traditional approach of checking error codes/ flags is too intursive</li>
+</ul>
+</li>
+<li>Exceptions provide a non-intursive way to signal errors<ul>
+<li>try/catch/finally provides a structured way to handle exceptions<ul>
+<li>The try block contains the "normal" code to execute<ul>
+<li>Block executes to completion unless an exception is thrown</li>
+</ul>
+</li>
+<li>The catch block contains the error handling code<ul>
+<li>Block executes only if matching exception is thrown</li>
+</ul>
+</li>
+<li>The finally block contains cleanup code if needed<ul>
+<li>Runs in all cases following try or catch block</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Exception class hierarchy</p>
+<ul>
+<li>Object<ul>
+<li>Throwable<ul>
+<li>Error (Virtual machine related errors)</li>
+<li>Exception<ul>
+<li>Runtime exception (Unchecked exception)</li>
+<li>Checked exception</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Types exceptions</p>
+<ul>
+<li>Exceptions can be handled by type<ul>
+<li>Each exception type can have a separate catch block</li>
+<li>Each catch is tested in order from top to bottom</li>
+<li>First assignable catch is selected</li>
+</ul>
+</li>
+<li>Start catch blocks with most specific exception types</li>
+</ul>
+</li>
+<li>
+<p>Exceptions and methods</p>
+<ul>
+<li>Exceptions propagate up the call stack<ul>
+<li>Can cross method boundaries</li>
+</ul>
+</li>
+<li>Exceptions are part of a methods's contract<ul>
+<li>Method is responsible for any checked exceptions that might occur<ul>
+<li>Catch the exception</li>
+<li>Document that the exception might occur<ul>
+<li>use the throws clause</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Exceptions and method overriding</p>
+<ul>
+<li>The throws clause of an overriding method must be compatible with the throws clause of the overriden method<ul>
+<li>Can exclude exceptions</li>
+<li>Can have the same exception</li>
+<li>Can have a derived exception</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Throwing exceptions</p>
+<ul>
+<li>Our code can throw exceptions (Using the throw keyword)<ul>
+<li>Must create exception instance before throwing<ul>
+<li>Most exception classes provide a constructor that accepts a String message or other detail</li>
+<li>When caused by another exception, include originating exception<ul>
+<li>All exception classes support initCause method</li>
+<li>Many provide a constructor that accepts the originating exception</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Creating a custom exception type</p>
+<ul>
+<li>In most cases better to use esisting exception type</li>
+<li>Normally inherit directly from Exception class<ul>
+<li>Makes them checked exceptions</li>
+<li>Constructors are often their only members<ul>
+<li>Mostly required functionality is inherited</li>
+<li>Constructor that accepts required detail</li>
+<li>Constructor that accepts required detaila and originating exception</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>Exceptions provide a non-intrusive way to signal errors</li>
+<li>try/catch/finally provide a structured way to handle exceptions</li>
+<li>Exceptions are caught by type<ul>
+<li>Can have separate vatch statement for differing exception types</li>
+<li>Catch from most specific type to least specific</li>
+</ul>
+</li>
+<li>Raise exceptions using throw</li>
+<li>Methods must declare any unhandled checked exceptions using throws</li>
+<li>Can create custom exception types<ul>
+<li>Normally inherit from Exception</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="working-with-packages">Working with Packages</h2>
+<ul>
+<li>
+<p>What is a Package?</p>
+<ul>
+<li>A package is a group of related types<ul>
+<li>Create a namespace</li>
+<li>Provide an access boundary</li>
+<li>Act as a unit of distribution</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Declaring packages</p>
+<ul>
+<li>Each source file identifies the associated package<ul>
+<li>Use the package keyword</li>
+<li>Package declaration must appear before any type declarations</li>
+<li>Applies to all types within that source file</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Package creates a Namespace</p>
+<ul>
+<li>Package name is part of the type-name<ul>
+<li>Convention creates unique package name<ul>
+<li>Follows reverse domain name structure</li>
+</ul>
+</li>
+<li>Type name is qualified by package name</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Detemnining a Type's Package</p>
+<ul>
+<li>Compiler needs to know each type's package<ul>
+<li>Explicitly qualifying each type is impractical</li>
+<li>Java offers several alternatives to explicitly qualifying types<ul>
+<li>Allows use of a type's simple name in code</li>
+<li>Types in current package do not need to be qualified</li>
+<li>Types in the java.lang package do no need to be qualified</li>
+<li>Use type imports</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Type imports</p>
+<ul>
+<li>Type imports guide compiler to map simple names to qualified names (use import keyword)<ul>
+<li>Single type import<ul>
+<li>Provides mapping for a single type<ul>
+<li>Preferred way to import types</li>
+<li>Most modern IDEs will add automatically</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Import on demand<ul>
+<li>Provides mapping for all types in a package<ul>
+<li>Use with caution</li>
+<li>Exposes code to potential breakage from changes in referenced packages</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Limiting access to Package Content</p>
+<ul>
+<li>Packages can serve as an access boundary<ul>
+<li>Often referred to as package private</li>
+<li>Useful for creatingtypes and features to support functionality provided by the package<ul>
+<li>Types and features are not meant to be used stand-alone</li>
+<li>Can apply to a type<ul>
+<li>Entire type is inaccessible outside of the package</li>
+</ul>
+</li>
+<li>Can apply to type members<ul>
+<li>Specific members of an otherwise accessible type are inaccessible outside of the package</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Access modifiers</p>
+<ul>
+<li>public</li>
+<li>private</li>
+<li>protected</li>
+</ul>
+</li>
+<li>
+<p>Packages provide a Unit of distribution</p>
+<ul>
+<li>packages provide a predictable software structure<ul>
+<li>Class files organized in hierarchical folders reflecting the package name<ul>
+<li>Each part of the package name is a separate folder</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Archive files</p>
+<ul>
+<li>Package folder structure can be placed into an acrhive file (jar file)<ul>
+<li>Places package fo,der structure into a single file<ul>
+<li>Optionally includes a manifest providing information regarding archive content<ul>
+<li>List of name-vale pairs</li>
+<li>Commonly used to define startup class</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>A package is a group of related types<ul>
+<li>Package declaration must appear in source file before any type declarations</li>
+</ul>
+</li>
+<li>Type name qualified by package name<ul>
+<li>Use import statements to map simple names to qualified names</li>
+</ul>
+</li>
+<li>Packages serve as an access boundary</li>
+<li>Packages simplify distribution<ul>
+<li>Types organized hierarchically according to the package name</li>
+<li>Archive files store package hierarchy in a single file</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="creating-abstract-relationships-with-interfaces">Creating abstract relationships with Interfaces</h2>
+<ul>
+<li>
+<p>What is an interface</p>
+<ul>
+<li>An interface defines a contract and provides no implementation<ul>
+<li>Classes implement interfaces<ul>
+<li>Express that the class conforms to the contract</li>
+<li>Interfaces dont limit other aspects of the class implementation</li>
+<li>Some interfaces require additional type information (like generics)</li>
+<li>Classes are free to implement multiple interfaces</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>An interface defines a contract<ul>
+<li>Provides no implementation</li>
+<li>Can include methods and constants</li>
+</ul>
+</li>
+<li>Classes implement interfaces<ul>
+<li>Classes are able to implement multiple interfaces</li>
+</ul>
+</li>
+<li>Interfaces are able to extend other interfaces<ul>
+<li>Implementing an extended interface implicitly implements the base</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="stitic-members-nested-types-and-anonymous-classes">Stitic members, nested types, and anonymous classes</h2>
+<ul>
+<li>
+<p>Static members</p>
+<ul>
+<li>Static members are shared class-wide</li>
+<li>Declared using the static keyword</li>
+<li>Field<ul>
+<li>A value not associated with a specific instance</li>
+<li>All instance access the same value</li>
+</ul>
+</li>
+<li>Method<ul>
+<li>Performs an action not tied to a specific instance</li>
+<li>Can access static fields only</li>
+</ul>
+</li>
+<li>Static import<ul>
+<li>Provides short hand for accessing static members</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Statuc initialization blocks</p>
+<ul>
+<li>Static initialization blocks perform one-time type initialization</li>
+<li>Statements enclosed in brackets outside of any method or constructor<ul>
+<li>Cannot access instance members</li>
+<li>Must handle all checked exceptions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Nested types</p>
+<ul>
+<li>A nested type is a type declared within another type<ul>
+<li>Classes can be declared within classes and interfaces</li>
+<li>Interfaces can be declared within classes and interfaces</li>
+</ul>
+</li>
+<li>Nested types are members od the enclosing type<ul>
+<li>private members of the enclosing type are visible to the nested type</li>
+</ul>
+</li>
+<li>Nested types support all member access modifiers<ul>
+<li>public</li>
+<li>package private</li>
+<li>protected</li>
+<li>private</li>
+</ul>
+</li>
+<li>Nested types serve differing purposes<ul>
+<li>Structure and scoping<ul>
+<li>Static classes nested within classes</li>
+<li>All classes nested within interfaces</li>
+<li>All nested interfaces</li>
+</ul>
+</li>
+<li>Inner classes<ul>
+<li>Non-static classes nested within classes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Anonymous classes</p>
+<ul>
+<li>Anonymous classes are declared as part of the creation</li>
+<li>Anonymous classes are inner classes</li>
+<li>Create as if you are constructing an instance of the interface or base class<ul>
+<li>Place opening and closing brackets after the interface or base class</li>
+<li>place implementation code within brackets</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Summary</p>
+<ul>
+<li>Static methods and fields are shared class-wide<ul>
+<li>Not associated with an individual instance</li>
+</ul>
+</li>
+<li>Static initialization blocks provide one-time type declaration</li>
+<li>A nested tpe is a type declared within another type<ul>
+<li>Can be used to provide structure and scoping</li>
+<li>Inner classes create an association between nested and enclosing instances</li>
+</ul>
+</li>
+<li>Anonymous classes are declared as part of their creation<ul>
+<li>Useful for simple interface implementations and class extensions</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
