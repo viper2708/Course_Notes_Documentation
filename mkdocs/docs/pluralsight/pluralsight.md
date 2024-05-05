@@ -17,6 +17,9 @@ This documentation contains the contents of PluralSight courses.
         *   [Java Web Fundamentals](blinc/phase2/javaWebFundamentals.md)
         *   [Spring : The Big Picture](blinc/phase2/springTheBigPicture.md)
 *   Paths
+    *   Domain Driven Design
+        *   Beginner
+            *   [Clean Architecture : Patterns, Practices and Principles](paths/bdd/beginner/cleanArchitecture.md)
     *   Java Language Fundamentals
         *   Beginner
             *   [Modern Java - The Big Picture](paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture.md)
