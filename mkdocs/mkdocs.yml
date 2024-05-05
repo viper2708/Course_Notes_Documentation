@@ -21,11 +21,11 @@ nav:
             - Deep Dive into Service Catalog: office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/deepDiveIntoServiceCatalog.md
             - DoItNow Services: office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/doItNowService.md
           - Cloud Platform Use:
-            - Cloud Native ArchitectureCloud Native Architecture: office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/cloudNativeArchitecture.md
+            - Cloud Native Architecture: office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/cloudNativeArchitecture.md
             - Introduction to Cloud Architecture: office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/introductionToCloudArchitecture.md
           - Core Services Discovery:
             - Block Storage Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/blockStorageService.md
-            - Cerficate Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/certificateService.md
+            - Certificate Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/certificateService.md
             - Cloud Orchestration Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudOrchestrationService.md
             - Cloud Platform Compute Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudPlatformComputeService.md
             - File Storage Service: office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/fileStorageService.md
