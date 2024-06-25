@@ -63,6 +63,7 @@ nav:
         - Domain Driven Design:
           - Beginner:
             - Clean Architecture - Patterns, Practices and Principles: pluralsight/paths/bdd/beginner/cleanArchitecture.md
+            - Modern Software Architecture - Domain Models, CQRS, and Event Sourcing: pluralsight/paths/bdd/beginner/modernSoftwareArchitecture.md
         - Java Language Fundamentals:
           - Beginner:
             - Modern Java, the Big Picture: pluralsight/paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture.md
@@ -76,7 +77,7 @@ nav:
       - Atomic Habits: booksNovels/atomicHabits.md
 
 theme:
-  name: material
+  name: dracula
   palette:
     primary: teal
     accent: orange
