@@ -245,3 +245,39 @@
 * Spaghetti-code vs. Lasagna-code
     * Spaghetti-code : Messy tangle of instructions leading nowhere near to any flicker of solid software.
     * Lasagna-code : Layered block of modules easy to cut vertically and/or horizontally and easy to deploy.
+
+* Layered architecture
+    * Presentation layer -> UX
+    * Application layer -> Use-cases
+    * Domain layer -> Business
+        * TX Script
+        * Table module
+        * Domain model
+        * CQRS
+        * Event sourcing
+    * Data layer -> Persistence
+        * Relational
+        * NoSQL
+        * Memory
+
+### The Presentation Layer
+
+* What is presentation layer?
+    * Responsible for providing the user interface to accomplish any required tasks
+    * Responsible for providing an effective, smooth and pleasant user experience
+
+* Attributes of presentation layer
+    * Task based
+    * Device-friendly
+    * User friendly
+    * Faithful to real-world processes
+
+### The Application Layer
+
+* What does application layer do?
+    * Reports to the presentation
+        * Serves ready-to-use data in the required form
+    * Orchestrates tasks triggered by presentation elements
+        * Use-cases of the application's frontend
+    * Doubly-linked with presentation
+        * Possibly extended or duplicated when a new frontend is added
