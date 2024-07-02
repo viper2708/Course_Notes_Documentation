@@ -281,3 +281,182 @@
         * Use-cases of the application's frontend
     * Doubly-linked with presentation
         * Possibly extended or duplicated when a new frontend is added
+
+### The Business Logic
+
+* Business Logic contains 2 parts
+    * Application logic
+        * Dependent on use cases
+            * Application entities (Data transfer objects)
+            * Application workflow components (Application services)
+    * Domain logic
+        * Invariant to use cases
+            * Business entities (Domain model)
+            * Business workflow components (Domain services)
+        * Domain logic is all about baking business rules into the code
+
+* Business rule
+    * Statements that detail the implementation of a business process or describe a business policy to be taken into account
+    * The business rule is executed in the following ways:
+        * Business logic workflow
+        * Business logic components
+        * Business rule engine
+        * Domain model
+            * Rules encapsulated in the model
+
+### Patterns for Organizing the Business Logic
+
+* Common patterns
+    * Transaction script
+    * Table module
+    * Domain model
+
+* Transaction script pattern
+    * System actions
+        * Each procedure handles a single task
+    * Logical transaction
+        * End-to-end from presentation to data
+    * Common subtasks
+        * Split into bounded sub-procedures for reuse
+
+* Table module pattern
+    * One module per table in the database
+    * Module contains all methods that will process the data
+        * Both queries and commands
+    * May limit modules to "significant" tables
+        * Tables with only outbound foreign-key relationships
+
+* Domain model pattern
+    * Aggregated objects
+        * Data and behaviour
+    * Persistence agnostic
+    * Paired with domain services
+
+### The Domain Layer
+
+* Domain layer
+    * Logic invariant to use cases
+        * Domain model
+        * Domain services
+
+* Domain model
+    * Models for the business domain
+        * Object-oriented entity model
+        * Functional model
+    * Guidelines for classes in an entity model
+        * DDD conventions (factories, value types, private setters)
+        * Data and behaviour
+    * Anemic model
+        * Plain data containers
+        * Behaviour and rules moved to domain services
+
+* Domain services
+    * Pieces of domain logic that don't fit into any of the existing entities
+    * Types of domain services
+        * Classes that group logically related behaviours
+            * Typically operating on multiple domain entities
+        * Implementation of processes that
+            * Requires access to the persistence layer for reads and writes
+            * Requires access to external services
+
+### The Infrastructure Layer
+
+* Infrastructure
+    * Set of the fundamental facilities needed for the operation of a software system
+
+* Fundamental facilities of software systems
+    * Persistence
+    * Security
+    * Logging and tracing
+    * Inversion of control
+    * Caching
+    * Networks
+  
+* Down where technologies belong
+    * Necessary to fuel the system
+    * Not binding the system to specific products
+    * How it works?
+        * Concrete details of technologies
+            * Connection strings
+            * File paths
+            * TCP addresses
+            * HTTP Urls
+        * Preferably made of facades
+            * Technology details hidden from view
+            * Replaceable with a minimum effort
+
+## The 'Domain Model' Supporting Architecture
+
+### Holistic Model for the Business Domain
+
+* Domain layer
+    * Domain model
+        * Aggregates
+        * Entities
+        * Value types
+        * Factories
+    * Domain services
+        * Cross-aggregate behaviour
+        * Repositories
+        * External services
+
+* Key DDD misconceptions
+    * Perceived simply as having an object model with some special characteristics
+    * Database is just part of the infrastructure and can be neglected
+    * Ubiquitous Language is a guide to naming classes in the object model
+
+* Clearing misconceptions
+    * Just an object model
+        * Context mapping is permanent
+        * Modeling the domain through objects is just one of the possible options
+    * Database agnostic
+        * The object model must be easy to persist
+        * Persistence, though, should not be the primary concern
+        * Primary concern is making sense of the business domain
+    * Ubiquitous language
+        * Understanding the language to understand the business
+        * Keep language of business in sync with code
+
+### Aspects of Domain Model
+
+* Aspects of Domain Model Module
+    * Value objects
+    * Entities
+    * Aggregates
+
+* DDD Value types
+    * Collection of individual values
+    * Fully defined by its collection of attributes
+    * Immutable
+    * More precise and accurate than primitive types
+
+* DDD Entities
+    * Need an identity
+    * Uniqueness is important to the specific object
+    * Typically made of data and behaviour
+    * Contain domain logic, but not persistence logic
+
+* DDD Aggregates
+    * A few individual entities constantly used and referenced together
+    * Cluster of associated objects treated as one for data changes
+    * Aggregate roots
+    * Preserve transactional integrity
+
+### Database-centric Domain Models
+
+* Persistence vs. Domain Model
+    * Persistence Model
+        * Object-oriented model 1:1 with underlying relational data
+        * Reliable and familiar to most developers
+        * Doesn't include business logic (except perhaps validation)
+    * Domain Model
+        * Object-oriented model for business logic
+        * Persistence model
+        * No persistence logic inside
+
+### The Crazy Little Thing Called Behaviour
+
+* What's behaviour?
+    * Methods that validate the state of the object
+    * Methods that invoke business actions to perform on the object
+    * Methods that express business processes involving the object
