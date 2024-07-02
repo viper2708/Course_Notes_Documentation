@@ -1,0 +1,1654 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Modern Software Architecture - Domain Models, CQRS, and Event Sourcing - Viper Docs</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../../../../assets/css/darcula-highlight.min.css">
+
+        <link rel="stylesheet" href="../../../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../../../assets/css/dracula-ui.min.css">
+        <link rel="stylesheet" href="../../../../../assets/css/mkdocs.min.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../../../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">Viper Docs</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../../../../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#free-code-camp-collapse" aria-expanded="false">
+                    Free Code Camp
+                </a>
+                <div class="collapse" id="free-code-camp-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../../freeCodeCamp/freeCodeCamp/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Free Code Camp Contents
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../../freeCodeCamp/youtube/sqlDatabaseCourse/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Sql Database Course
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#nptel-collapse" aria-expanded="false">
+                    Nptel
+                </a>
+                <div class="collapse" id="nptel-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../../nptel/nptel/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Nptel
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#system-analysis-and-design-collapse" aria-expanded="false">
+            System Analysis and Design
+        </a>
+
+        <div class="collapse" id="system-analysis-and-design-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../nptel/systemAnalysisAndDesign/module1/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Information for Management
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#office-collapse" aria-expanded="false">
+                    Office
+                </a>
+                <div class="collapse" id="office-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/office/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Office contents
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#cloud-platform-professional-services-collapse" aria-expanded="false">
+            Cloud Platform Professional Services
+        </a>
+
+        <div class="collapse" id="cloud-platform-professional-services-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#beginner-collapse" aria-expanded="false">
+            Beginner
+        </a>
+
+        <div class="collapse" id="beginner-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/beginner/goToCloudPlatform/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Go to Cloud Platform
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/beginner/gts2020CloudStrategy/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            GTS 2020 Cloud Strategy
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/beginner/processesAndOperationsInSG/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Processes and Operations in SG Cloud Platform
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#intermediate-collapse" aria-expanded="false">
+            Intermediate
+        </a>
+
+        <div class="collapse" id="intermediate-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#cloud-platform-delivery-collapse" aria-expanded="false">
+            Cloud Platform Delivery
+        </a>
+
+        <div class="collapse" id="cloud-platform-delivery-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/deepDiveIntoServiceCatalog/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Deep Dive into Service Catalog
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformDelivery/doItNowService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            DoItNow Services
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#cloud-platform-use-collapse" aria-expanded="false">
+            Cloud Platform Use
+        </a>
+
+        <div class="collapse" id="cloud-platform-use-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/cloudNativeArchitecture/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Cloud Native Architecture
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/cloudPlatformUse/introductionToCloudArchitecture/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Introduction to Cloud Architecture
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#core-services-discovery-collapse" aria-expanded="false">
+            Core Services Discovery
+        </a>
+
+        <div class="collapse" id="core-services-discovery-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/blockStorageService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Block Storage Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/certificateService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Certificate Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudOrchestrationService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Cloud Orchestration Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/cloudPlatformComputeService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Cloud Platform Compute Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/fileStorageService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            File Storage Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IAMService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            IAM Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/IPAM_DNSService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            IPAM-DNS Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSFactoryService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            OS Factory Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/OSConfigurationService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            OS Configuration Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/objectStorageService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Object Storage Service
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/intermediate/coreServicesDiscovery/securityGroupService/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Security Group Service
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#advanced-collapse" aria-expanded="false">
+            Advanced
+        </a>
+
+        <div class="collapse" id="advanced-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#data-persistence-in-cloud-platform-collapse" aria-expanded="false">
+            Data Persistence in Cloud Platform
+        </a>
+
+        <div class="collapse" id="data-persistence-in-cloud-platform-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/cloudPlatformProfessionalServices/advanced/dataPersistenceInCloudPlatform/cloudNativeArchitecturesPatterns/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Cloud Native Architecture Patterns
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#my-learning-collapse" aria-expanded="false">
+            My Learning
+        </a>
+
+        <div class="collapse" id="my-learning-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/myLearning/bascisOfLevel1PermanentControl/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Basics of Level 1 Permanent Control
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/myLearning/sustainableITAwareness/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Sustainable IT Awareness
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/myLearning/fightAgainstCorruption/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Protection Against Corruption
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/myLearning/protectionOfPersonalData/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Protection of Personal Data
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/myLearning/preventionOfSexualHarassment/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Prevention of Sexual Harassment
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../../office/myLearning/csrHistoryStandardsOpportunities/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            CSR History Standards and Opportunities
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../../.."
+                    class=" active 
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#pluralsight-collapse" aria-expanded="false">
+                    PluralSight
+                </a>
+                <div class="collapse" id="pluralsight-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../pluralsight/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            PluralSight Contents
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#blinc-collapse" aria-expanded="false">
+            Blinc
+        </a>
+
+        <div class="collapse" id="blinc-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#phase-1-collapse" aria-expanded="false">
+            Phase 1
+        </a>
+
+        <div class="collapse" id="phase-1-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../blinc/phase1/fundamentalsOfJava/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Fundamentals of Java
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../blinc/phase1/generics/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Generics
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../blinc/phase1/git/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Git
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../blinc/phase1/jdbcjavaPlatform/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            JDBC Java Platform
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../blinc/phase1/multithreading/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Multi Threading
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../blinc/phase1/shellScripting/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Shell Scripting
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../blinc/phase1/tddTheBigPicture/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            TDD The Big Picture
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#phase-2-collapse" aria-expanded="false">
+            Phase 2
+        </a>
+
+        <div class="collapse" id="phase-2-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../blinc/phase2/javaWebFundamentals/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Java Wev Fundamentals
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../blinc/phase2/springTheBigPicture/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Spring The Big Picture
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#paths-collapse" aria-expanded="false">
+            Paths
+        </a>
+
+        <div class="collapse" id="paths-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#domain-driven-design-collapse" aria-expanded="false">
+            Domain Driven Design
+        </a>
+
+        <div class="collapse" id="domain-driven-design-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#beginner-collapse" aria-expanded="false">
+            Beginner
+        </a>
+
+        <div class="collapse" id="beginner-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../cleanArchitecture/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Clean Architecture - Patterns, Practices and Principles
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="./"
+            class=" active 
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Modern Software Architecture - Domain Models, CQRS, and Event Sourcing
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#java-language-fundamentals-collapse" aria-expanded="false">
+            Java Language Fundamentals
+        </a>
+
+        <div class="collapse" id="java-language-fundamentals-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#beginner-collapse" aria-expanded="false">
+            Beginner
+        </a>
+
+        <div class="collapse" id="beginner-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../javaLanguageFundamentals/beginner/modernJavaTheBigPicture/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Modern Java, the Big Picture
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#pmi-acp-agile-exam-collapse" aria-expanded="false">
+            PMI-ACP Agile exam
+        </a>
+
+        <div class="collapse" id="pmi-acp-agile-exam-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../pmiAcpExam/introductionToAgileProjectMgt/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Introduction to Agile Project Management and the PMI-ACP Exam
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#solo-courses-collapse" aria-expanded="false">
+            Solo Courses
+        </a>
+
+        <div class="collapse" id="solo-courses-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#java-collapse" aria-expanded="false">
+            Java
+        </a>
+
+        <div class="collapse" id="java-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../soloCourses/java/streamsLambdaExpressions/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            From Collections to Streams using Lambda Expressions
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#self-development-books-collapse" aria-expanded="false">
+                    Self Development Books
+                </a>
+                <div class="collapse" id="self-development-books-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../../booksNovels/selfDevelopmentBooks/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Self Development Books list
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../../booksNovels/atomicHabits/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Atomic Habits
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple">
+        <div class="container-fluid">
+            
+            <button class="navbar-toggler w-100 text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav text-md-center">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../cleanArchitecture/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="../../../javaLanguageFundamentals/beginner/modernJavaTheBigPicture/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="modern-software-architecture-domain-models-cqrs-and-event-sourcing">Modern Software Architecture: Domain Models, CQRS, and Event Sourcing</h1>
+<h2 id="ddd-at-a-glance">DDD at a Glance</h2>
+<h3 id="introduction">Introduction</h3>
+<ul>
+<li>Key Points<ul>
+<li>Repositioning Domain-Driven Design</li>
+<li>Exploring Supporting Architectures</li>
+<li>UX-first Design Methodology</li>
+</ul>
+</li>
+</ul>
+<h3 id="ddd-in-history">DDD in History</h3>
+<ul>
+<li>
+<p>Domain-Driven Design in History</p>
+<ul>
+<li>Introduced 10+ years ago by Eric Evans</li>
+<li>Primary intent of tackling complexity in the heart of software</li>
+<li>Innovative guidelines and approach to design</li>
+</ul>
+</li>
+<li>
+<p>Where does the complexity comes from?</p>
+<ul>
+<li>Big Ball of Mud (BBM)<ul>
+<li>A system that's largely unstructured, padded with hidden dependencies between parts, with a lot of data and code duplications and an unclear identification of layers and concerns - a spaghetti code jungle</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ddd-today">DDD Today</h3>
+<ul>
+<li>
+<p>Why is DDD so Intriguing?</p>
+<ul>
+<li>Captured known elements of design process</li>
+<li>Organized them into set of principles</li>
+<li>Made domain modeling the focus of development</li>
+<li>Different approach to building business logic</li>
+</ul>
+</li>
+<li>
+<p>DDD is still about the business logic</p>
+<ul>
+<li>Crunch knowledge about the domain</li>
+<li>Recognize subdomains</li>
+<li>Design a rich domain model</li>
+<li>Code by telling objects in the domain model what to do</li>
+</ul>
+</li>
+<li>
+<p>Supreme Goal of DDD</p>
+<ul>
+<li>Tackling complexity in the heart of software</li>
+<li>DDD represents a significant landmark in software development<ul>
+<li>Took root in the Java space</li>
+<li>Blissfully ignored in .NET until recently</li>
+</ul>
+</li>
+<li>DDD is more about analysis than about actual coding strategies</li>
+<li>The main focus of DDD has shifted<ul>
+<li>Discovering the domain architecture more than organizing the business logic</li>
+<li>Domain Model remains a valid pattern to organize the business logic but other patterns can be used as well like:<ul>
+<li>Object-oriented models</li>
+<li>Functional models</li>
+<li>CQRS</li>
+<li>Classic 3-tier</li>
+<li>2-tier</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="ddd-misconceptions">DDD Misconceptions</h3>
+<ul>
+<li>Common summary of DDD<ul>
+<li>Build an object model for the business domain<ul>
+<li>Call it a "domain model"</li>
+</ul>
+</li>
+<li>Consume the model in a layered architecture<ul>
+<li>4 layers, business logic split and renamed</li>
+<li>Application layer and domain layer</li>
+</ul>
+</li>
+<li>DDD has two distinct parts. One is always needed but the other can be happily ignored<ul>
+<li>Analytical<ul>
+<li>Valuable to everybody and every project</li>
+</ul>
+</li>
+<li>Strategic<ul>
+<li>One of many supporting architectures</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="discovering-the-domain-architecture-through-ddd">Discovering the Domain Architecture through DDD</h2>
+<h3 id="ubiquitous-language">Ubiquitous Language</h3>
+<ul>
+<li>
+<p>What is Ubiquitous Language</p>
+<ul>
+<li>Vocabulary of domain-specific terms<ul>
+<li>Nouns, verbs, adjectives, idiomatic expressions and even adverbs</li>
+</ul>
+</li>
+<li>Shared by all parties involved in the project<ul>
+<li>Primary goal of avoiding misunderstandings</li>
+</ul>
+</li>
+<li>Used in all forms of spoken and written communication<ul>
+<li>Universal language of the business as done in the organization</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Motivation</p>
+<ul>
+<li>People use different languages</li>
+<li>Common terminology</li>
+<li>Help making sense of user requirements</li>
+</ul>
+</li>
+<li>
+<p>Definition</p>
+<ul>
+<li>Natural language, not artificial</li>
+<li>Comes out of interviews and brainstorming</li>
+<li>Iteratively composed and refined along the way</li>
+<li>Unambiguous and fluent<ul>
+<li>Meets expectation of domain experts</li>
+<li>Meets expectations of technical people</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Ubiquitous language used in</p>
+<ul>
+<li>User Stories and RFC</li>
+<li>Meetings</li>
+<li>Emails</li>
+<li>Technical documentation</li>
+<li>Schedule</li>
+<li>Source Code</li>
+</ul>
+</li>
+<li>
+<p>Structure</p>
+<ul>
+<li>List of terms saved to Office documents<ul>
+<li>Glossary of terms fully explained</li>
+<li>Made available to everyone</li>
+<li>Part of the project documentation</li>
+</ul>
+</li>
+<li>Continuously updated<ul>
+<li>Responsibility of the development team</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="defining-the-ubiquitous-language">Defining the Ubiquitous Language</h3>
+<ul>
+<li>
+<p>Use the language model as the backbone of a language</p>
+<ul>
+<li>Discovering the ubiquitous language</li>
+<li>Leads you to understand the business domain</li>
+<li>In order to design a model</li>
+<li>Any model works. Not necessarily an object-oriented model</li>
+</ul>
+</li>
+<li>
+<p>Ubiquitous Language</p>
+<ul>
+<li>Words and verbs that truly reflect the semantics of the business domain</li>
+<li>No ambiguity</li>
+<li>No synonyms</li>
+</ul>
+</li>
+</ul>
+<h3 id="ubiquitous-language-tips">Ubiquitous Language Tips</h3>
+<ul>
+<li>
+<p>Dealing with acronyms</p>
+<ul>
+<li>Domain-specific</li>
+<li>Hard to remember</li>
+<li>Avoid if possible</li>
+</ul>
+</li>
+<li>
+<p>Ubiquitous language is in sync with the code</p>
+</li>
+<li>
+<p>Scenarios where Ubiquitous Language is key to have</p>
+<ul>
+<li>Really a lot of domain logic is tricky to digest<ul>
+<li>Ensures all relevant terms are understood</li>
+<li>No other term is used to indicate same/similar concepts</li>
+</ul>
+</li>
+<li>Business logic not completely defined<ul>
+<li>Business is young and growing with the system (i.e. startup)</li>
+<li>Domain logic discovered along the way</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Ubiquitous language in Code</p>
+<ul>
+<li>Naming conventions<ul>
+<li>Classes</li>
+<li>Members</li>
+<li>Namespaces</li>
+</ul>
+</li>
+<li>Extension methods<ul>
+<li>Domain-specific language</li>
+<li>C#, Java, Kotlin</li>
+</ul>
+</li>
+<li>Tools<ul>
+<li>Code assistants</li>
+<li>Refactoring tools</li>
+<li>Gated check-ins</li>
+</ul>
+</li>
+<li>Agnostic<ul>
+<li>No mandated technology</li>
+<li>No mandated paradigm</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="bounded-contexts">Bounded contexts</h3>
+<ul>
+<li>
+<p>What is bounded contexts?</p>
+<ul>
+<li>Delimited space where an element has a well-defined meaning<ul>
+<li>Any elements of the ubiquitous language</li>
+</ul>
+</li>
+<li>Beyond the boundaries of the context, the language changes<ul>
+<li>Each bounded context has its own ubiquitous language</li>
+</ul>
+</li>
+<li>Business domain split in a web of interconnected contexts<ul>
+<li>Each context has its own architecture and implementation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Motivation for bounded contexts</p>
+<ul>
+<li>Remove ambiguity and duplication</li>
+<li>Simplify design of software designs</li>
+<li>Integration of external components</li>
+</ul>
+</li>
+</ul>
+<h3 id="discovering-bounded-contexts">Discovering bounded contexts</h3>
+<ul>
+<li>
+<p>Bounded contexts</p>
+<ul>
+<li>Ubiquitous language</li>
+<li>Independent implementation (eg. CQRS)</li>
+<li>External interface (to other contexts)</li>
+</ul>
+</li>
+<li>
+<p>Integrity at risk without bounded contexts</p>
+<ul>
+<li>Same term that means differently to different people</li>
+<li>Same term to indicate different elements</li>
+<li>Dependency on external subsystems</li>
+<li>Dependency on legacy code</li>
+<li>Functional areas of the application that are better treated separately</li>
+</ul>
+</li>
+</ul>
+<h3 id="context-mapping">Context mapping</h3>
+<ul>
+<li>
+<p>Web of Bounded Contexts</p>
+<ul>
+<li>Systems may result from the composition of multiple contexts</li>
+<li>Number of bounded context often reflects physical organization</li>
+</ul>
+</li>
+<li>
+<p>What is Context Map</p>
+<ul>
+<li>Context map is the diagram that provides a comprehensive view of the system being designed</li>
+<li>Direction of relationship<ul>
+<li>Upstream context influences</li>
+<li>Downstream context</li>
+<li>Aspects being influenced<ul>
+<li>Binaries</li>
+<li>Schedule</li>
+<li>Request-for-changes</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="event-storming">Event storming</h3>
+<ul>
+<li>
+<p>What is event storming</p>
+<ul>
+<li>Exploring a business domain starting from observable domain events</li>
+<li>Developers and domain experts together in a meeting room</li>
+</ul>
+</li>
+<li>
+<p>How it works</p>
+<ul>
+<li>Identify relevant domain events<ul>
+<li>Use a sticky note of a given color to put events on the wall</li>
+</ul>
+</li>
+<li>Find what causes the event<ul>
+<li>User action? Add a sticky note of a different color</li>
+<li>Asynchronous event? Add a sticky note of a different color</li>
+<li>Another event? Add another sticky note of same color on top</li>
+</ul>
+</li>
+<li>Look at the modeling surface as a timeline<ul>
+<li>Add notes with markers</li>
+</ul>
+</li>
+<li>Facilitator<ul>
+<li>Leads the meeting<ul>
+<li>Starts the meeting asking questions</li>
+<li>Sticks first notes on the wall to show the way</li>
+</ul>
+</li>
+<li>Guides the modeling effort<ul>
+<li>Asks questions to better understand the emerging model</li>
+<li>Ensure ideas are represented accurately</li>
+<li>Keep focused and moves ahead</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Benefits</p>
+<ul>
+<li>Comprehensive vision of the business domain</li>
+<li>Bounded contexts and aggregates in each context<ul>
+<li>Aggregate handles commands and controls persistence</li>
+</ul>
+</li>
+<li>Types of users in the system<ul>
+<li>Personas who runs command and why</li>
+</ul>
+</li>
+<li>Where UX is critical<ul>
+<li>Sketches of relevant screens</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-ddd-layered-architecture">The DDD Layered Architecture</h2>
+<h3 id="introduction_1">Introduction</h3>
+<ul>
+<li>Key points<ul>
+<li>Layers and tiers<ul>
+<li>Segmentation of a Software system</li>
+</ul>
+</li>
+<li>Domain layer<ul>
+<li>Patterns for organizing the Business Logic</li>
+</ul>
+</li>
+<li>Other Layers<ul>
+<li>From Persistence to Presentation</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-layers-of-a-software-system">The Layers of a Software System</h3>
+<ul>
+<li>
+<p>Spaghetti-code vs. Lasagna-code</p>
+<ul>
+<li>Spaghetti-code : Messy tangle of instructions leading nowhere near to any flicker of solid software.</li>
+<li>Lasagna-code : Layered block of modules easy to cut vertically and/or horizontally and easy to deploy.</li>
+</ul>
+</li>
+<li>
+<p>Layered architecture</p>
+<ul>
+<li>Presentation layer -&gt; UX</li>
+<li>Application layer -&gt; Use-cases</li>
+<li>Domain layer -&gt; Business<ul>
+<li>TX Script</li>
+<li>Table module</li>
+<li>Domain model</li>
+<li>CQRS</li>
+<li>Event sourcing</li>
+</ul>
+</li>
+<li>Data layer -&gt; Persistence<ul>
+<li>Relational</li>
+<li>NoSQL</li>
+<li>Memory</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-presentation-layer">The Presentation Layer</h3>
+<ul>
+<li>
+<p>What is presentation layer?</p>
+<ul>
+<li>Responsible for providing the user interface to accomplish any required tasks</li>
+<li>Responsible for providing an effective, smooth and pleasant user experience</li>
+</ul>
+</li>
+<li>
+<p>Attributes of presentation layer</p>
+<ul>
+<li>Task based</li>
+<li>Device-friendly</li>
+<li>User friendly</li>
+<li>Faithful to real-world processes</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-application-layer">The Application Layer</h3>
+<ul>
+<li>What does application layer do?<ul>
+<li>Reports to the presentation<ul>
+<li>Serves ready-to-use data in the required form</li>
+</ul>
+</li>
+<li>Orchestrates tasks triggered by presentation elements<ul>
+<li>Use-cases of the application's frontend</li>
+</ul>
+</li>
+<li>Doubly-linked with presentation<ul>
+<li>Possibly extended or duplicated when a new frontend is added</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-business-logic">The Business Logic</h3>
+<ul>
+<li>
+<p>Business Logic contains 2 parts</p>
+<ul>
+<li>Application logic<ul>
+<li>Dependent on use cases<ul>
+<li>Application entities (Data transfer objects)</li>
+<li>Application workflow components (Application services)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Domain logic<ul>
+<li>Invariant to use cases<ul>
+<li>Business entities (Domain model)</li>
+<li>Business workflow components (Domain services)</li>
+</ul>
+</li>
+<li>Domain logic is all about baking business rules into the code</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Business rule</p>
+<ul>
+<li>Statements that detail the implementation of a business process or describe a business policy to be taken into account</li>
+<li>The business rule is executed in the following ways:<ul>
+<li>Business logic workflow</li>
+<li>Business logic components</li>
+<li>Business rule engine</li>
+<li>Domain model<ul>
+<li>Rules encapsulated in the model</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="patterns-for-organizing-the-business-logic">Patterns for Organizing the Business Logic</h3>
+<ul>
+<li>
+<p>Common patterns</p>
+<ul>
+<li>Transaction script</li>
+<li>Table module</li>
+<li>Domain model</li>
+</ul>
+</li>
+<li>
+<p>Transaction script pattern</p>
+<ul>
+<li>System actions<ul>
+<li>Each procedure handles a single task</li>
+</ul>
+</li>
+<li>Logical transaction<ul>
+<li>End-to-end from presentation to data</li>
+</ul>
+</li>
+<li>Common subtasks<ul>
+<li>Split into bounded sub-procedures for reuse</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Table module pattern</p>
+<ul>
+<li>One module per table in the database</li>
+<li>Module contains all methods that will process the data<ul>
+<li>Both queries and commands</li>
+</ul>
+</li>
+<li>May limit modules to "significant" tables<ul>
+<li>Tables with only outbound foreign-key relationships</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Domain model pattern</p>
+<ul>
+<li>Aggregated objects<ul>
+<li>Data and behaviour</li>
+</ul>
+</li>
+<li>Persistence agnostic</li>
+<li>Paired with domain services</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-domain-layer">The Domain Layer</h3>
+<ul>
+<li>
+<p>Domain layer</p>
+<ul>
+<li>Logic invariant to use cases<ul>
+<li>Domain model</li>
+<li>Domain services</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Domain model</p>
+<ul>
+<li>Models for the business domain<ul>
+<li>Object-oriented entity model</li>
+<li>Functional model</li>
+</ul>
+</li>
+<li>Guidelines for classes in an entity model<ul>
+<li>DDD conventions (factories, value types, private setters)</li>
+<li>Data and behaviour</li>
+</ul>
+</li>
+<li>Anemic model<ul>
+<li>Plain data containers</li>
+<li>Behaviour and rules moved to domain services</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Domain services</p>
+<ul>
+<li>Pieces of domain logic that don't fit into any of the existing entities</li>
+<li>Types of domain services<ul>
+<li>Classes that group logically related behaviours<ul>
+<li>Typically operating on multiple domain entities</li>
+</ul>
+</li>
+<li>Implementation of processes that<ul>
+<li>Requires access to the persistence layer for reads and writes</li>
+<li>Requires access to external services</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-infrastructure-layer">The Infrastructure Layer</h3>
+<ul>
+<li>
+<p>Infrastructure</p>
+<ul>
+<li>Set of the fundamental facilities needed for the operation of a software system</li>
+</ul>
+</li>
+<li>
+<p>Fundamental facilities of software systems</p>
+<ul>
+<li>Persistence</li>
+<li>Security</li>
+<li>Logging and tracing</li>
+<li>Inversion of control</li>
+<li>Caching</li>
+<li>Networks</li>
+</ul>
+</li>
+<li>
+<p>Down where technologies belong</p>
+<ul>
+<li>Necessary to fuel the system</li>
+<li>Not binding the system to specific products</li>
+<li>How it works?<ul>
+<li>Concrete details of technologies<ul>
+<li>Connection strings</li>
+<li>File paths</li>
+<li>TCP addresses</li>
+<li>HTTP Urls</li>
+</ul>
+</li>
+<li>Preferably made of facades<ul>
+<li>Technology details hidden from view</li>
+<li>Replaceable with a minimum effort</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="the-domain-model-supporting-architecture">The 'Domain Model' Supporting Architecture</h2>
+<h3 id="holistic-model-for-the-business-domain">Holistic Model for the Business Domain</h3>
+<ul>
+<li>
+<p>Domain layer</p>
+<ul>
+<li>Domain model<ul>
+<li>Aggregates</li>
+<li>Entities</li>
+<li>Value types</li>
+<li>Factories</li>
+</ul>
+</li>
+<li>Domain services<ul>
+<li>Cross-aggregate behaviour</li>
+<li>Repositories</li>
+<li>External services</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Key DDD misconceptions</p>
+<ul>
+<li>Perceived simply as having an object model with some special characteristics</li>
+<li>Database is just part of the infrastructure and can be neglected</li>
+<li>Ubiquitous Language is a guide to naming classes in the object model</li>
+</ul>
+</li>
+<li>
+<p>Clearing misconceptions</p>
+<ul>
+<li>Just an object model<ul>
+<li>Context mapping is permanent</li>
+<li>Modeling the domain through objects is just one of the possible options</li>
+</ul>
+</li>
+<li>Database agnostic<ul>
+<li>The object model must be easy to persist</li>
+<li>Persistence, though, should not be the primary concern</li>
+<li>Primary concern is making sense of the business domain</li>
+</ul>
+</li>
+<li>Ubiquitous language<ul>
+<li>Understanding the language to understand the business</li>
+<li>Keep language of business in sync with code</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="aspects-of-domain-model">Aspects of Domain Model</h3>
+<ul>
+<li>
+<p>Aspects of Domain Model Module</p>
+<ul>
+<li>Value objects</li>
+<li>Entities</li>
+<li>Aggregates</li>
+</ul>
+</li>
+<li>
+<p>DDD Value types</p>
+<ul>
+<li>Collection of individual values</li>
+<li>Fully defined by its collection of attributes</li>
+<li>Immutable</li>
+<li>More precise and accurate than primitive types</li>
+</ul>
+</li>
+<li>
+<p>DDD Entities</p>
+<ul>
+<li>Need an identity</li>
+<li>Uniqueness is important to the specific object</li>
+<li>Typically made of data and behaviour</li>
+<li>Contain domain logic, but not persistence logic</li>
+</ul>
+</li>
+<li>
+<p>DDD Aggregates</p>
+<ul>
+<li>A few individual entities constantly used and referenced together</li>
+<li>Cluster of associated objects treated as one for data changes</li>
+<li>Aggregate roots</li>
+<li>Preserve transactional integrity</li>
+</ul>
+</li>
+</ul>
+<h3 id="database-centric-domain-models">Database-centric Domain Models</h3>
+<ul>
+<li>Persistence vs. Domain Model<ul>
+<li>Persistence Model<ul>
+<li>Object-oriented model 1:1 with underlying relational data</li>
+<li>Reliable and familiar to most developers</li>
+<li>Doesn't include business logic (except perhaps validation)</li>
+</ul>
+</li>
+<li>Domain Model<ul>
+<li>Object-oriented model for business logic</li>
+<li>Persistence model</li>
+<li>No persistence logic inside</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-crazy-little-thing-called-behaviour">The Crazy Little Thing Called Behaviour</h3>
+<ul>
+<li>What's behaviour?<ul>
+<li>Methods that validate the state of the object</li>
+<li>Methods that invoke business actions to perform on the object</li>
+<li>Methods that express business processes involving the object</li>
+</ul>
+</li>
+</ul></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../../../../..';</script>
+        <script src="../../../../../assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="../../../../../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="../../../../../assets/js/mkdocs.js"></script>
+			<script src="../../../../../search/main.js" defer></script>
+
+</body>
+
+</html>
