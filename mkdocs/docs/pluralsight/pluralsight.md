@@ -20,6 +20,7 @@ This documentation contains the contents of PluralSight courses.
     *   Domain Driven Design
         *   Beginner
             *   [Clean Architecture : Patterns, Practices and Principles](paths/bdd/beginner/cleanArchitecture.md)
+            *   [Modern Software Architecture: Domain Models, CQRS, and Event Sourcing](paths/bdd/beginner/modernSoftwareArchitecture.md)
     *   Java Language Fundamentals
         *   Beginner
             *   [Modern Java - The Big Picture](paths/javaLanguageFundamentals/beginner/modernJavaTheBigPicture.md)
